@@ -1,0 +1,343 @@
+{
+  "title": "小八上班记 · CatsCo",
+  "shots": [
+    {
+      "time": "0:00.0",
+      "key": 3.8,
+      "act": "起 · 终端",
+      "picture": "黑底终端里敲出 $ xiaoba，光标方块长出耳朵、睁开眼：12×7 的小八。",
+      "camera": "wide，锁定在第 0 天",
+      "sound": "键盘声，光标嘀嗒，一串上行音",
+      "note": "XiaoBa-CLI 6156778 · 2026-02-04",
+      "shot": "3.8s.png",
+      "card": "XiaoBa CLI",
+      "lines": {
+        "中文": "嗨，我叫小八。2 月 4 日，我在一个终端里出生。"
+      }
+    },
+    {
+      "time": "0:06.4",
+      "key": 8.9,
+      "act": "起 · 终端",
+      "picture": "小猫沿上轨（Runtime）一跳一跳向右，身后按真实日计数垒起提交砖。",
+      "camera": "跟随，向右漂移",
+      "sound": "每一跳一声 blip",
+      "note": "XiaoBa-CLI 2 月 63 次提交",
+      "shot": "8.9s.png",
+      "lines": {
+        "中文": "每一次提交，都在路上垒一块砖。"
+      }
+    },
+    {
+      "time": "0:11.6",
+      "key": 14.2,
+      "act": "起 · 终端",
+      "picture": "下轨（Platform）从第 11 天长出来，冒出一个聊天气泡“Cats Company”。",
+      "camera": "wide，停在 2 月 15 日",
+      "sound": "金币音",
+      "note": "cats-company d41bc376 · 2026-02-15",
+      "shot": "14.2s.png",
+      "card": "Cats Company",
+      "lines": {
+        "中文": "2 月 15 日，隔壁开了一间办公室：团队聊天室。"
+      }
+    },
+    {
+      "time": "0:19.2",
+      "key": 21.2,
+      "act": "起 · 终端",
+      "picture": "下轨冒出“群聊”“Bot SDK”两个气泡；小八开心。",
+      "camera": "跟随",
+      "sound": "两声金币",
+      "note": "cats-company d9fc600c · 2026-02-21",
+      "shot": "21.2s.png",
+      "card": "v0.5.0-alpha",
+      "lines": {
+        "中文": "一周后它有了群聊，还给机器人留了门。"
+      }
+    },
+    {
+      "time": "0:26.6",
+      "key": 28.8,
+      "act": "承 · 聊天室",
+      "picture": "第 28 天，红白缝线把两条轨道缝在一起；小八跳下去，穿过像素接缝，画面由终端绿变成聊天浅色，小猫长成 18×10 的员工。",
+      "camera": "跟随，接缝从右入画",
+      "sound": "缝线 blip 上行，跳，落地，升级音",
+      "note": "X abffa4e + P 4339dc97 · 2026-03-04",
+      "shot": "28.8s.png",
+      "card": "搬家",
+      "lines": {
+        "中文": "3 月 4 日，我搬了进去。两个仓库，从此一起长大。"
+      }
+    },
+    {
+      "time": "0:35.8",
+      "key": 37.8,
+      "act": "承 · 聊天室",
+      "picture": "一个 CatsCo 桌面窗口从天而降落在上轨；小八抬头。",
+      "camera": "跟随",
+      "sound": "落地 + 金币",
+      "note": "XiaoBa-CLI a8d8b90 · 2026-03-20",
+      "shot": "37.8s.png",
+      "card": "桌面端",
+      "lines": {
+        "中文": "3 月 20 日，我有了桌面端，住进你的电脑。"
+      }
+    },
+    {
+      "time": "0:41.6",
+      "key": 43.2,
+      "act": "承 · 聊天室",
+      "picture": "上轨插上第一面旗 XiaoBa v0.1.0；“微信”气泡冒出。之后每个 Release 都是一面旗。",
+      "camera": "跟随",
+      "sound": "金币 ×2",
+      "note": "XiaoBa-CLI 3bd950c · tag v0.1.0 · 2026-03-23",
+      "shot": "43.2s.png",
+      "card": "第一个 Release",
+      "lines": {
+        "中文": "3 月 23 日，第一个版本发布；我也会在微信里回你了。"
+      }
+    },
+    {
+      "time": "0:46.2",
+      "key": 48.6,
+      "act": "承 · 聊天室",
+      "picture": "小八小跑穿过 4 月；下轨冒出“帮我看看这份日志”和 log.txt 附件气泡。",
+      "camera": "跟随，加速",
+      "sound": "脚步声，鼓点进来",
+      "note": "cats-company 14e3937d / 755fe7ba · 2026-04",
+      "shot": "48.6s.png",
+      "card": "在聊天里派活",
+      "lines": {
+        "中文": "有事在聊天里说一声就行，文件直接拖进来。"
+      }
+    },
+    {
+      "time": "0:52.0",
+      "key": 54.3,
+      "act": "转 · 摔跤与工牌",
+      "picture": "第 94 天空中两块蓝色平台（企业微信第三方应用 / 回调）；小八跳上去，平台先后碎成像素，小八掉出画面。",
+      "camera": "跟随，停",
+      "sound": "跳，两声嗡，下坠滑音",
+      "note": "cats-company db0ddd99 afd5a918 · 2026-05-09",
+      "shot": "54.3s.png",
+      "card": "Revert ×2",
+      "lines": {
+        "中文": "5 月 9 日，接入企业微信，当天撤回两次。摔了一跤。"
+      }
+    },
+    {
+      "time": "0:57.4",
+      "key": 57.9,
+      "act": "转 · 摔跤与工牌",
+      "picture": "小八在更右边从地面下爬回来，头顶转星星。",
+      "camera": "跟随",
+      "sound": "跳，落地",
+      "note": "connective",
+      "shot": "57.9s.png"
+    },
+    {
+      "time": "0:58.4",
+      "key": 61.4,
+      "act": "转 · 摔跤与工牌",
+      "picture": "穿过第二道接缝，画面变成 CatsCo 深色；小八甩甩头，挂上 CatsCo 工牌，上轨冒出“CatsCo 产品化”。",
+      "camera": "跟随，停",
+      "sound": "升级音，金币，全乐队进来",
+      "note": "XiaoBa-CLI d5b8abc · 2026-05-09",
+      "shot": "61.4s.png",
+      "card": "CatsCo",
+      "lines": {
+        "中文": "也是这一天，桌面端改名 CatsCo。我挂上了工牌。"
+      }
+    },
+    {
+      "time": "1:07.4",
+      "key": 68.6,
+      "act": "转 · 走进你的电脑",
+      "picture": "第 127 天，两条轨道再次缝合；下轨升起一台“公司电脑”。",
+      "camera": "跟随",
+      "sound": "缝线 blip",
+      "note": "P 9b377d74 + X 6131e6a · 2026-06-11",
+      "shot": "68.6s.png",
+      "card": "设备授权 · 执行边界",
+      "lines": {
+        "中文": "6 月 11 日，两个仓库一起打地基：我能走进你的电脑了。"
+      }
+    },
+    {
+      "time": "1:10.0",
+      "key": 73.0,
+      "act": "转 · 走进你的电脑",
+      "picture": "小八缩小跳进屏幕，在设备蓝里打字：读日志 → 报错 → 修 → build passed（示意）。",
+      "camera": "跟随，停在屏幕",
+      "sound": "俯冲 whoosh，打字声，金币",
+      "note": "P 9b377d74 + X 6131e6a",
+      "shot": "73s.png",
+      "card": "设备授权 · 执行边界"
+    },
+    {
+      "time": "1:17.0",
+      "key": 78.0,
+      "act": "转 · 走进你的电脑",
+      "picture": "小八叼着补丁文件从屏幕跳出来。",
+      "camera": "跟随",
+      "sound": "上行 whoosh，落地",
+      "note": "README · Trust is part of the architecture",
+      "shot": "78s.png",
+      "card": "只在授权设备上工作",
+      "lines": {
+        "中文": "只去你指定、在线、并且授权过的那一台。"
+      }
+    },
+    {
+      "time": "1:22.2",
+      "key": 85.2,
+      "act": "转 · 走进你的电脑",
+      "picture": "第 139–140 天第三次缝合，“家用工作站”升起；小八钻进去跑测试，卡在 1 个失败；抖动的分身（棋盘格）跳上上轨，从左边（过去）接住“旧对话”，再钻回屏幕。",
+      "camera": "跟随，停",
+      "sound": "打字，嗡，跳，金币",
+      "note": "XiaoBa-CLI 68acd19 · 2026-06-24",
+      "shot": "85.2s.png",
+      "card": "Branch Agent",
+      "lines": {
+        "中文": "测试卡住了？我分个身去翻旧对话，本体接着干。"
+      }
+    },
+    {
+      "time": "1:26.2",
+      "key": 87.4,
+      "act": "转 · 走进你的电脑",
+      "picture": "分身合回本体，测试条变绿：all passed（示意）。",
+      "camera": "跟随",
+      "sound": "升级音",
+      "note": "P 1c629147 + X 1c214dc · 06-23/24",
+      "shot": "87.4s.png",
+      "card": "远程执行 Shell",
+      "lines": {
+        "中文": "找到线索，合回来：全部通过。"
+      }
+    },
+    {
+      "time": "1:33.2",
+      "key": 95.2,
+      "act": "合 · CatsCo",
+      "picture": "小八带着文件走到 7 月中，“飞书”气泡；把文件甩进对话气泡“patch.diff · 报告”。",
+      "camera": "跟随",
+      "sound": "金币，跳",
+      "note": "X 744493f · P 8091baaa · 07-15/16",
+      "shot": "95.2s.png",
+      "card": "把文件带回来",
+      "lines": {
+        "中文": "文件带回对话。飞书里，也能找到我。"
+      }
+    },
+    {
+      "time": "1:40.4",
+      "key": 102.2,
+      "act": "合 · CatsCo",
+      "picture": "三个技能芯片（写周报 / 查日志 / 做 PPT）从天而降，被小八一个个接住摞起。",
+      "camera": "跟随，停",
+      "sound": "下落音 + 金币 ×3",
+      "note": "cats-company 517ed2c5 · 2026-08-04",
+      "shot": "102.2s.png",
+      "card": "SkillHub",
+      "lines": {
+        "中文": "做对过的事，沉淀成技能，装上就会。"
+      }
+    },
+    {
+      "time": "1:44.8",
+      "key": 106.8,
+      "act": "合 · CatsCo",
+      "picture": "上方飘来一朵云，云上一只小八坐在键盘前，“在线”绿灯常亮。",
+      "camera": "跟随",
+      "sound": "升级音",
+      "note": "cats-company 6d095408 · 2026-08-07",
+      "shot": "106.8s.png",
+      "card": "云托管员工",
+      "lines": {
+        "中文": "我在云上也有了工位：你关机，我也在线。"
+      }
+    },
+    {
+      "time": "1:49.2",
+      "key": 111.2,
+      "act": "合 · CatsCo",
+      "picture": "小八跑过 8 月，下轨的砖墙最高。",
+      "camera": "跟随，加速",
+      "sound": "脚步，全乐队",
+      "note": "git log · 2026-08：P 504 + X 274",
+      "shot": "111.2s.png",
+      "card": "最忙的一个月",
+      "lines": {
+        "中文": "8 月，两个仓库一共 778 次提交。"
+      }
+    },
+    {
+      "time": "1:53.6",
+      "key": 115.6,
+      "act": "合 · CatsCo",
+      "picture": "第 228 天，浏览器地址栏弹出，打出 www.catsco.cn。",
+      "camera": "跟随，停",
+      "sound": "键盘，金币",
+      "note": "cats-company fe0cdd7a · 2026-09-20",
+      "shot": "115.6s.png",
+      "card": "www.catsco.cn",
+      "lines": {
+        "中文": "9 月 20 日最忙：58 次提交，官网上线。"
+      }
+    },
+    {
+      "time": "1:59.6",
+      "key": 121.6,
+      "act": "合 · CatsCo",
+      "picture": "上轨插上最大的一面绿旗 CatsCo v1.6.0；小八坐下摇尾巴。",
+      "camera": "跟随，停",
+      "sound": "升级音，琶音",
+      "note": "XiaoBa-CLI tag v1.6.0 · 2026-09-23",
+      "shot": "121.6s.png",
+      "card": "CatsCo v1.6.0",
+      "lines": {
+        "中文": "9 月 23 日，CatsCo v1.6.0。"
+      }
+    },
+    {
+      "time": "2:05.8",
+      "key": 128.8,
+      "act": "结尾",
+      "picture": "镜头拉远到全部 238 天：两条轨道、全部砖墙、所有旗子。",
+      "camera": "唯一一次拉远",
+      "sound": "和弦打开",
+      "note": "git rev-list --count · 2026-09-29",
+      "shot": "128.8s.png",
+      "card": "2,609 次提交",
+      "lines": {
+        "中文": "238 天，两个仓库，2,609 次提交。"
+      }
+    },
+    {
+      "time": "2:11.8",
+      "key": 134.2,
+      "act": "结尾",
+      "picture": "屏幕中央打出签名。",
+      "camera": "拉远后静止",
+      "sound": "打字声",
+      "note": "connective",
+      "shot": "134.2s.png",
+      "lines": {
+        "中文": "一个员工，每一台授权的电脑。"
+      }
+    },
+    {
+      "time": "2:15.8",
+      "key": 139.8,
+      "act": "结尾",
+      "picture": "小八跳到画面中央，散开折回 CatsCo 的 M，M 眨一下眼；CatsCo 字标、口号、两个仓库地址。",
+      "camera": "静止",
+      "sound": "上行 whoosh，下行 blip，金币",
+      "note": "buildsense-ai/cats-company · buildsense-ai/XiaoBa-CLI",
+      "shot": "139.8s.png",
+      "card": "CatsCo"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "_": "Narration. text = subtitle, say = what the TTS reads (optional). One feature per line.",
+  "voice": "Chinese (Mandarin)_Warm_Bestie",
+  "model": "speech-2.8-hd",
+  "lines": [
+    { "id": "v01", "text": "这是小八，你的 AI 员工。" },
+    { "id": "v02", "text": "有什么要做的，直接说就好。" },
+    { "id": "v03", "text": "告诉它用哪台电脑，它只在你授权的设备上工作。" },
+    { "id": "v04", "text": "在公司电脑上，读日志，找到问题，改好，重新构建。" },
+    { "id": "v05", "text": "再到家里的工作站，跑完整测试。" },
+    { "id": "v06", "text": "遇到卡点，它会分出一个分身，去翻以前的对话找线索，" },
+    { "id": "v07", "text": "主线的工作，一刻不停。" },
+    { "id": "v08", "text": "补丁和报告，最后都回到你的对话里。" },
+    { "id": "v09", "text": "一个任务，一个 AI 员工，每一台授权的电脑。" },
+    { "id": "v10", "text": "CatsCo，你的专业 AI 员工。", "say": "Cats Co，你的专业 AI 员工。" }
+  ]
+}

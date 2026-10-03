@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>小八上班了 · CatsCo · Living Screencast</title>
+<!--
+  Lemo-Opuscar "Living Screencast" contract:
+    window.DUR, window.render(t) (pure, deterministic), window.READY, window.EV (sound events), window.SUBS (captions)
+  The CatsCo WebApp chrome is redrawn from the live dark-theme UI (webapp/, measured at 1440×900).
+  All task content (people, files, devices, tests) is mock data.
+  ?t=12.3 pins a frame · ?play plays live with out/mix.wav · &hud shows time
+-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div id="world">
+    <img id="wall" src="assets/wallpaper.jpg" alt="">
+    <div id="win">
+      <div id="titlebar"><div class="lights"><i></i><i></i><i></i></div><div class="wt">CatsCo</div></div>
+      <div id="app">
+        <!-- sidebar (real structure: brand · 新建任务 · SkillHub · sections · profile) -->
+        <aside id="side">
+          <div class="brand"><img src="assets/catsco-brand-mark.webp" alt=""><span>CatsCo</span></div>
+          <div class="sbtn"><svg viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" /></svg>新建任务</div>
+          <div class="sbtn"><svg viewBox="0 0 20 20"><rect x="3.5" y="3.5" width="5.5" height="5.5" rx="1.5"/><rect x="11" y="3.5" width="5.5" height="5.5" rx="1.5"/><rect x="3.5" y="11" width="5.5" height="5.5" rx="1.5"/><rect x="11" y="11" width="5.5" height="5.5" rx="1.5"/></svg>SkillHub</div>
+          <div class="sec" style="top:158px">项目</div>
+          <div class="srow" style="top:196px"><span class="lb">billing-web</span><span class="cnt">3</span></div>
+          <div class="srow" style="top:234px"><span class="lb">增长数据看板</span><span class="cnt">2</span></div>
+          <div class="sec" style="top:282px">历史任务</div>
+          <div id="hist">
+            <div class="srow h" id="h0"><span class="lb">billing-web 修复</span><span class="tm">刚刚</span></div>
+            <div class="srow h" id="h1"><span class="lb">移动端回归测试</span><span class="kind">协作</span><span class="tm">22:24</span></div>
+            <div class="srow h" id="h2"><span class="lb">增长数据看板周报</span><span class="tm">20:31</span></div>
+            <div class="srow h" id="h3"><span class="lb">billing-web 时区问题</span><span class="tm">3 天前</span></div>
+            <div class="srow h" id="h4"><span class="lb">品牌内容共创</span><span class="kind">协作</span><span class="tm">周一</span></div>
+            <div class="srow h" id="h5"><span class="lb">客户声音同步群</span><span class="kind">协作</span><span class="tm">周一</span></div>
+          </div>
+          <div id="clue">
+            <div class="ch">会话 · billing-web 时区问题 · 3 天前</div>
+            <div class="cq">“CI 和工作站时区不一致，跑测试前需要设置 <code>TZ=Asia/Shanghai</code>。”</div>
+          </div>
+          <div class="prof"><div class="pav">陈</div><div class="pn">陈宇</div><div class="pr">在线</div></div>
+        </aside>
+
+        <main id="main">
+          <header id="hdr"><span class="model"><i></i>MiniMax M3</span><span class="quota">剩余 82%</span><strong id="ttl">新任务 · 小八</strong></header>
+          <div id="col">
+            <div id="empty">
+              <h1 id="h1q">需要为您做什么，陈宇？</h1>
+              <h1 id="slogan"><span id="w0">一个任务</span><span class="dot">·</span><span id="w1">一个 AI 员工</span><span class="dot">·</span><span id="w2">每一台授权的电脑</span></h1>
+              <div id="lock"><img id="lockimg" src="assets/catsco-logo.webp" alt=""><div id="lockw">CatsCo</div><div id="lockt">你的专业 AI 员工</div><div id="locku">app.catsco.cn</div></div>
+            </div>
+            <div id="tl">
+              <div id="mU" class="umsg"><div class="bub" id="bubU"></div><time>18:42</time></div>
+              <div id="mB1" class="bmsg"><div class="av"><img src="assets/catsco-brand-mark.webp" alt=""></div><div class="nm">小八</div>
+                <div class="devs"><span class="dev" id="dev0"><i></i>公司电脑 · office-mbp</span><span class="dev" id="dev1"><i></i>家用工作站 · home-ws</span></div>
+                <div class="tx">收到。我会在你授权、当前在线的这 2 台设备上完成。</div>
+                <div class="tx dim">先修构建，再跑完整测试，完成后把补丁和报告发给你。</div></div>
+              <div id="mB2" class="bmsg"><div class="av"><img src="assets/catsco-brand-mark.webp" alt=""></div><div class="nm">小八</div>
+                <div class="tx"><b>搞定了 ✓</b></div>
+                <div class="tx">公司电脑：构建已修复（total.ts +1 −1）</div>
+                <div class="tx">家用工作站：214 项测试全部通过</div>
+                <div class="files"><div class="file" id="f0"><i class="g">DIFF</i><b>patch-total.diff</b><span>2 KB</span></div><div class="file" id="f1"><i class="r">PDF</i><b>test-report.pdf</b><span>184 KB · 214 项</span></div></div></div>
+            </div>
+            <div id="comp"><div id="ctext"><span id="typed"></span><span id="caret"></span></div><div id="cph">给小八发消息…</div>
+              <div class="cplus"><svg viewBox="0 0 20 20"><path d="M10 4v12M4 10h12"/></svg></div>
+              <div id="send"><svg viewBox="0 0 20 20"><path d="M10 16V4M4.5 9.5 10 4l5.5 5.5"/></svg></div></div>
+            <div id="hint">Enter 发送 · Shift+Enter 换行 · Ctrl+B 折叠侧栏 · 点击红色按钮停止生成</div>
+          </div>
+
+          <!-- device activity pane (visualises the Runtime working on each authorized device) -->
+          <section id="pane">
+            <div class="ph"><span class="pt">设备活动</span>
+              <span class="tab" id="tab0"><i></i>公司电脑</span><span class="tab" id="tab1"><i></i>家用工作站</span></div>
+            <div class="pb" id="pb0">
+              <div class="ln" id="l0"><span class="k">›</span> 读取 ~/work/billing-web/build.log</div>
+              <div class="ln dim" id="l1">  vite v5.4 building for production…</div>
+              <div class="ln dim" id="l2">  ✓ 1,284 modules transformed</div>
+              <div class="ln err" id="l3">  ✗ src/invoice/total.ts:42:18</div>
+              <div class="ln err2" id="l4">    TS2345 'number | undefined' → 'number'</div>
+              <div class="ln" id="l5"><span class="k">›</span> 定位 total.ts:42 · 折扣为空时没有兜底</div>
+              <div class="ln del" id="l6">42 − const total = sum(items) - discount</div>
+              <div class="ln add" id="l7">42 + const total = sum(items) - (discount ?? 0)</div>
+              <div class="ln" id="l8"><span class="k">›</span> npm run build</div>
+              <div class="ln ok" id="l9">  ✓ 构建通过 · 12.4s</div>
+            </div>
+            <div class="pb" id="pb1">
+              <div class="th">完整测试 · billing-web</div><div class="tc" id="tcnt">0 / 214</div>
+              <div class="bar" id="bar"><i id="bfill"></i></div>
+              <div id="rows"></div>
+              <div id="banner">✓ 214 项测试全部通过<span>3 分 12 秒</span></div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div id="actors"></div>
+    <svg id="cursor" viewBox="0 0 24 24" width="30" height="30"><path d="M5 2.5v17.2l4.4-4.2 2.9 6.6 2.9-1.3-2.9-6.5h6.1z" fill="#fff" stroke="#111" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    <div id="cring"></div>
+  </div>
+  <div id="vig"></div>
+</div>
+<div id="hud">
+  <div id="chap"><b id="chapn">01</b><span id="chapt">交代目标</span></div>
+  <div id="lapse">▶▶ 4×</div>
+  <div id="keys"></div>
+  <div id="cap"><span id="capt"></span></div>
+  <div id="fade"></div>
+  <div id="dbg"></div>
+</div>
+<svg width="0" height="0" style="position:absolute"><filter id="mb" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur id="mbg" stdDeviation="0 0"/></filter></svg>
+<script src="voices/voices.js"></script>
+<script src="film.js"></script>
+</body>
+</html>

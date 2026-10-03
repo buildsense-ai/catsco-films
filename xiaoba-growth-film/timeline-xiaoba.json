@@ -1,0 +1,2118 @@
+{
+ "repo": ".",
+ "first_day": "2026-02-04",
+ "last_day": "2026-09-29",
+ "total_commits": 1133,
+ "active_days": 155,
+ "busiest_days": [
+  {
+   "date": "2026-08-21",
+   "commits": 31,
+   "total": 895
+  },
+  {
+   "date": "2026-03-04",
+   "commits": 30,
+   "total": 113
+  },
+  {
+   "date": "2026-08-06",
+   "commits": 23,
+   "total": 754
+  },
+  {
+   "date": "2026-09-23",
+   "commits": 23,
+   "total": 1120
+  },
+  {
+   "date": "2026-09-20",
+   "commits": 21,
+   "total": 1091
+  }
+ ],
+ "author_names_upper_bound": 22,
+ "days": [
+  {
+   "date": "2026-02-04",
+   "commits": 1,
+   "total": 1
+  },
+  {
+   "date": "2026-02-09",
+   "commits": 1,
+   "total": 2
+  },
+  {
+   "date": "2026-02-10",
+   "commits": 3,
+   "total": 5
+  },
+  {
+   "date": "2026-02-11",
+   "commits": 1,
+   "total": 6
+  },
+  {
+   "date": "2026-02-12",
+   "commits": 1,
+   "total": 7
+  },
+  {
+   "date": "2026-02-13",
+   "commits": 2,
+   "total": 9
+  },
+  {
+   "date": "2026-02-15",
+   "commits": 20,
+   "total": 29
+  },
+  {
+   "date": "2026-02-19",
+   "commits": 8,
+   "total": 37
+  },
+  {
+   "date": "2026-02-20",
+   "commits": 12,
+   "total": 49
+  },
+  {
+   "date": "2026-02-22",
+   "commits": 2,
+   "total": 51
+  },
+  {
+   "date": "2026-02-26",
+   "commits": 6,
+   "total": 57
+  },
+  {
+   "date": "2026-02-27",
+   "commits": 2,
+   "total": 59
+  },
+  {
+   "date": "2026-02-28",
+   "commits": 4,
+   "total": 63
+  },
+  {
+   "date": "2026-03-02",
+   "commits": 18,
+   "total": 81
+  },
+  {
+   "date": "2026-03-03",
+   "commits": 2,
+   "total": 83
+  },
+  {
+   "date": "2026-03-04",
+   "commits": 30,
+   "total": 113
+  },
+  {
+   "date": "2026-03-05",
+   "commits": 14,
+   "total": 127
+  },
+  {
+   "date": "2026-03-06",
+   "commits": 14,
+   "total": 141
+  },
+  {
+   "date": "2026-03-07",
+   "commits": 16,
+   "total": 157
+  },
+  {
+   "date": "2026-03-08",
+   "commits": 12,
+   "total": 169
+  },
+  {
+   "date": "2026-03-11",
+   "commits": 8,
+   "total": 177
+  },
+  {
+   "date": "2026-03-14",
+   "commits": 2,
+   "total": 179
+  },
+  {
+   "date": "2026-03-15",
+   "commits": 4,
+   "total": 183
+  },
+  {
+   "date": "2026-03-17",
+   "commits": 10,
+   "total": 193
+  },
+  {
+   "date": "2026-03-20",
+   "commits": 2,
+   "total": 195
+  },
+  {
+   "date": "2026-03-23",
+   "commits": 6,
+   "total": 201
+  },
+  {
+   "date": "2026-03-24",
+   "commits": 16,
+   "total": 217
+  },
+  {
+   "date": "2026-03-25",
+   "commits": 6,
+   "total": 223
+  },
+  {
+   "date": "2026-03-26",
+   "commits": 6,
+   "total": 229
+  },
+  {
+   "date": "2026-03-27",
+   "commits": 2,
+   "total": 231
+  },
+  {
+   "date": "2026-03-28",
+   "commits": 1,
+   "total": 232
+  },
+  {
+   "date": "2026-03-30",
+   "commits": 10,
+   "total": 242
+  },
+  {
+   "date": "2026-03-31",
+   "commits": 3,
+   "total": 245
+  },
+  {
+   "date": "2026-04-02",
+   "commits": 1,
+   "total": 246
+  },
+  {
+   "date": "2026-04-04",
+   "commits": 1,
+   "total": 247
+  },
+  {
+   "date": "2026-04-06",
+   "commits": 6,
+   "total": 253
+  },
+  {
+   "date": "2026-04-07",
+   "commits": 4,
+   "total": 257
+  },
+  {
+   "date": "2026-04-08",
+   "commits": 2,
+   "total": 259
+  },
+  {
+   "date": "2026-04-13",
+   "commits": 2,
+   "total": 261
+  },
+  {
+   "date": "2026-04-16",
+   "commits": 7,
+   "total": 268
+  },
+  {
+   "date": "2026-04-17",
+   "commits": 13,
+   "total": 281
+  },
+  {
+   "date": "2026-04-21",
+   "commits": 2,
+   "total": 283
+  },
+  {
+   "date": "2026-04-22",
+   "commits": 3,
+   "total": 286
+  },
+  {
+   "date": "2026-04-23",
+   "commits": 1,
+   "total": 287
+  },
+  {
+   "date": "2026-04-24",
+   "commits": 3,
+   "total": 290
+  },
+  {
+   "date": "2026-04-27",
+   "commits": 5,
+   "total": 295
+  },
+  {
+   "date": "2026-04-29",
+   "commits": 3,
+   "total": 298
+  },
+  {
+   "date": "2026-05-04",
+   "commits": 1,
+   "total": 299
+  },
+  {
+   "date": "2026-05-06",
+   "commits": 2,
+   "total": 301
+  },
+  {
+   "date": "2026-05-09",
+   "commits": 2,
+   "total": 303
+  },
+  {
+   "date": "2026-05-10",
+   "commits": 1,
+   "total": 304
+  },
+  {
+   "date": "2026-05-11",
+   "commits": 10,
+   "total": 314
+  },
+  {
+   "date": "2026-05-12",
+   "commits": 6,
+   "total": 320
+  },
+  {
+   "date": "2026-05-13",
+   "commits": 3,
+   "total": 323
+  },
+  {
+   "date": "2026-05-14",
+   "commits": 1,
+   "total": 324
+  },
+  {
+   "date": "2026-05-15",
+   "commits": 4,
+   "total": 328
+  },
+  {
+   "date": "2026-05-17",
+   "commits": 6,
+   "total": 334
+  },
+  {
+   "date": "2026-05-18",
+   "commits": 4,
+   "total": 338
+  },
+  {
+   "date": "2026-05-20",
+   "commits": 2,
+   "total": 340
+  },
+  {
+   "date": "2026-05-22",
+   "commits": 3,
+   "total": 343
+  },
+  {
+   "date": "2026-05-27",
+   "commits": 1,
+   "total": 344
+  },
+  {
+   "date": "2026-05-28",
+   "commits": 4,
+   "total": 348
+  },
+  {
+   "date": "2026-05-29",
+   "commits": 4,
+   "total": 352
+  },
+  {
+   "date": "2026-06-01",
+   "commits": 4,
+   "total": 356
+  },
+  {
+   "date": "2026-06-02",
+   "commits": 10,
+   "total": 366
+  },
+  {
+   "date": "2026-06-03",
+   "commits": 2,
+   "total": 368
+  },
+  {
+   "date": "2026-06-04",
+   "commits": 4,
+   "total": 372
+  },
+  {
+   "date": "2026-06-05",
+   "commits": 1,
+   "total": 373
+  },
+  {
+   "date": "2026-06-08",
+   "commits": 1,
+   "total": 374
+  },
+  {
+   "date": "2026-06-09",
+   "commits": 3,
+   "total": 377
+  },
+  {
+   "date": "2026-06-11",
+   "commits": 4,
+   "total": 381
+  },
+  {
+   "date": "2026-06-12",
+   "commits": 4,
+   "total": 385
+  },
+  {
+   "date": "2026-06-15",
+   "commits": 4,
+   "total": 389
+  },
+  {
+   "date": "2026-06-16",
+   "commits": 8,
+   "total": 397
+  },
+  {
+   "date": "2026-06-17",
+   "commits": 1,
+   "total": 398
+  },
+  {
+   "date": "2026-06-18",
+   "commits": 3,
+   "total": 401
+  },
+  {
+   "date": "2026-06-23",
+   "commits": 2,
+   "total": 403
+  },
+  {
+   "date": "2026-06-24",
+   "commits": 14,
+   "total": 417
+  },
+  {
+   "date": "2026-06-25",
+   "commits": 10,
+   "total": 427
+  },
+  {
+   "date": "2026-06-26",
+   "commits": 3,
+   "total": 430
+  },
+  {
+   "date": "2026-06-29",
+   "commits": 10,
+   "total": 440
+  },
+  {
+   "date": "2026-06-30",
+   "commits": 15,
+   "total": 455
+  },
+  {
+   "date": "2026-07-01",
+   "commits": 20,
+   "total": 475
+  },
+  {
+   "date": "2026-07-02",
+   "commits": 9,
+   "total": 484
+  },
+  {
+   "date": "2026-07-03",
+   "commits": 9,
+   "total": 493
+  },
+  {
+   "date": "2026-07-04",
+   "commits": 1,
+   "total": 494
+  },
+  {
+   "date": "2026-07-06",
+   "commits": 3,
+   "total": 497
+  },
+  {
+   "date": "2026-07-07",
+   "commits": 3,
+   "total": 500
+  },
+  {
+   "date": "2026-07-08",
+   "commits": 11,
+   "total": 511
+  },
+  {
+   "date": "2026-07-09",
+   "commits": 6,
+   "total": 517
+  },
+  {
+   "date": "2026-07-10",
+   "commits": 9,
+   "total": 526
+  },
+  {
+   "date": "2026-07-12",
+   "commits": 6,
+   "total": 532
+  },
+  {
+   "date": "2026-07-13",
+   "commits": 8,
+   "total": 540
+  },
+  {
+   "date": "2026-07-14",
+   "commits": 4,
+   "total": 544
+  },
+  {
+   "date": "2026-07-15",
+   "commits": 9,
+   "total": 553
+  },
+  {
+   "date": "2026-07-16",
+   "commits": 19,
+   "total": 572
+  },
+  {
+   "date": "2026-07-17",
+   "commits": 1,
+   "total": 573
+  },
+  {
+   "date": "2026-07-19",
+   "commits": 2,
+   "total": 575
+  },
+  {
+   "date": "2026-07-20",
+   "commits": 17,
+   "total": 592
+  },
+  {
+   "date": "2026-07-21",
+   "commits": 14,
+   "total": 606
+  },
+  {
+   "date": "2026-07-22",
+   "commits": 8,
+   "total": 614
+  },
+  {
+   "date": "2026-07-23",
+   "commits": 15,
+   "total": 629
+  },
+  {
+   "date": "2026-07-24",
+   "commits": 6,
+   "total": 635
+  },
+  {
+   "date": "2026-07-26",
+   "commits": 1,
+   "total": 636
+  },
+  {
+   "date": "2026-07-27",
+   "commits": 6,
+   "total": 642
+  },
+  {
+   "date": "2026-07-28",
+   "commits": 4,
+   "total": 646
+  },
+  {
+   "date": "2026-07-29",
+   "commits": 14,
+   "total": 660
+  },
+  {
+   "date": "2026-07-30",
+   "commits": 15,
+   "total": 675
+  },
+  {
+   "date": "2026-07-31",
+   "commits": 6,
+   "total": 681
+  },
+  {
+   "date": "2026-08-01",
+   "commits": 1,
+   "total": 682
+  },
+  {
+   "date": "2026-08-02",
+   "commits": 14,
+   "total": 696
+  },
+  {
+   "date": "2026-08-03",
+   "commits": 16,
+   "total": 712
+  },
+  {
+   "date": "2026-08-04",
+   "commits": 2,
+   "total": 714
+  },
+  {
+   "date": "2026-08-05",
+   "commits": 17,
+   "total": 731
+  },
+  {
+   "date": "2026-08-06",
+   "commits": 23,
+   "total": 754
+  },
+  {
+   "date": "2026-08-07",
+   "commits": 15,
+   "total": 769
+  },
+  {
+   "date": "2026-08-10",
+   "commits": 20,
+   "total": 789
+  },
+  {
+   "date": "2026-08-11",
+   "commits": 2,
+   "total": 791
+  },
+  {
+   "date": "2026-08-12",
+   "commits": 2,
+   "total": 793
+  },
+  {
+   "date": "2026-08-13",
+   "commits": 4,
+   "total": 797
+  },
+  {
+   "date": "2026-08-14",
+   "commits": 9,
+   "total": 806
+  },
+  {
+   "date": "2026-08-15",
+   "commits": 4,
+   "total": 810
+  },
+  {
+   "date": "2026-08-16",
+   "commits": 3,
+   "total": 813
+  },
+  {
+   "date": "2026-08-17",
+   "commits": 16,
+   "total": 829
+  },
+  {
+   "date": "2026-08-18",
+   "commits": 10,
+   "total": 839
+  },
+  {
+   "date": "2026-08-19",
+   "commits": 13,
+   "total": 852
+  },
+  {
+   "date": "2026-08-20",
+   "commits": 12,
+   "total": 864
+  },
+  {
+   "date": "2026-08-21",
+   "commits": 31,
+   "total": 895
+  },
+  {
+   "date": "2026-08-23",
+   "commits": 1,
+   "total": 896
+  },
+  {
+   "date": "2026-08-24",
+   "commits": 8,
+   "total": 904
+  },
+  {
+   "date": "2026-08-25",
+   "commits": 9,
+   "total": 913
+  },
+  {
+   "date": "2026-08-26",
+   "commits": 18,
+   "total": 931
+  },
+  {
+   "date": "2026-08-27",
+   "commits": 5,
+   "total": 936
+  },
+  {
+   "date": "2026-08-28",
+   "commits": 18,
+   "total": 954
+  },
+  {
+   "date": "2026-08-31",
+   "commits": 1,
+   "total": 955
+  },
+  {
+   "date": "2026-09-01",
+   "commits": 4,
+   "total": 959
+  },
+  {
+   "date": "2026-09-02",
+   "commits": 3,
+   "total": 962
+  },
+  {
+   "date": "2026-09-03",
+   "commits": 6,
+   "total": 968
+  },
+  {
+   "date": "2026-09-04",
+   "commits": 4,
+   "total": 972
+  },
+  {
+   "date": "2026-09-07",
+   "commits": 11,
+   "total": 983
+  },
+  {
+   "date": "2026-09-08",
+   "commits": 7,
+   "total": 990
+  },
+  {
+   "date": "2026-09-09",
+   "commits": 16,
+   "total": 1006
+  },
+  {
+   "date": "2026-09-10",
+   "commits": 16,
+   "total": 1022
+  },
+  {
+   "date": "2026-09-11",
+   "commits": 18,
+   "total": 1040
+  },
+  {
+   "date": "2026-09-13",
+   "commits": 5,
+   "total": 1045
+  },
+  {
+   "date": "2026-09-14",
+   "commits": 7,
+   "total": 1052
+  },
+  {
+   "date": "2026-09-15",
+   "commits": 12,
+   "total": 1064
+  },
+  {
+   "date": "2026-09-16",
+   "commits": 3,
+   "total": 1067
+  },
+  {
+   "date": "2026-09-17",
+   "commits": 3,
+   "total": 1070
+  },
+  {
+   "date": "2026-09-20",
+   "commits": 21,
+   "total": 1091
+  },
+  {
+   "date": "2026-09-21",
+   "commits": 6,
+   "total": 1097
+  },
+  {
+   "date": "2026-09-23",
+   "commits": 23,
+   "total": 1120
+  },
+  {
+   "date": "2026-09-24",
+   "commits": 8,
+   "total": 1128
+  },
+  {
+   "date": "2026-09-25",
+   "commits": 2,
+   "total": 1130
+  },
+  {
+   "date": "2026-09-29",
+   "commits": 3,
+   "total": 1133
+  }
+ ],
+ "tags": [
+  {
+   "tag": "v0.1.0",
+   "date": "2026-03-23"
+  },
+  {
+   "tag": "v0.1.0-mac",
+   "date": "2026-03-24"
+  },
+  {
+   "tag": "0.1.0",
+   "date": "2026-03-26"
+  },
+  {
+   "tag": "v1.0.1",
+   "date": "2026-04-08"
+  },
+  {
+   "tag": "v1.0.2",
+   "date": "2026-04-08"
+  },
+  {
+   "tag": "v1.0.3",
+   "date": "2026-04-13"
+  },
+  {
+   "tag": "v1.1.0",
+   "date": "2026-04-24"
+  },
+  {
+   "tag": "v1.1.1",
+   "date": "2026-05-11"
+  },
+  {
+   "tag": "v1.1.2",
+   "date": "2026-05-11"
+  },
+  {
+   "tag": "v1.1.3",
+   "date": "2026-05-12"
+  },
+  {
+   "tag": "v1.1.4",
+   "date": "2026-05-12"
+  },
+  {
+   "tag": "v1.1.5",
+   "date": "2026-05-18"
+  },
+  {
+   "tag": "v1.2.0",
+   "date": "2026-06-03"
+  },
+  {
+   "tag": "v1.3.0",
+   "date": "2026-07-01"
+  },
+  {
+   "tag": "v1.4.0",
+   "date": "2026-07-02"
+  },
+  {
+   "tag": "v1.4.1",
+   "date": "2026-07-03"
+  },
+  {
+   "tag": "v1.4.2",
+   "date": "2026-07-10"
+  },
+  {
+   "tag": "v1.4.3",
+   "date": "2026-07-14"
+  },
+  {
+   "tag": "v1.4.4",
+   "date": "2026-07-16"
+  },
+  {
+   "tag": "v1.4.5",
+   "date": "2026-07-20"
+  },
+  {
+   "tag": "backup-lgy01-20260729-104830",
+   "date": "2026-07-22"
+  },
+  {
+   "tag": "v1.4.6",
+   "date": "2026-07-23"
+  },
+  {
+   "tag": "v1.4.7",
+   "date": "2026-07-27"
+  },
+  {
+   "tag": "v1.4.8",
+   "date": "2026-08-06"
+  },
+  {
+   "tag": "v1.4.9",
+   "date": "2026-08-18"
+  },
+  {
+   "tag": "v1.5.0",
+   "date": "2026-08-20"
+  },
+  {
+   "tag": "v1.5.1",
+   "date": "2026-08-27"
+  },
+  {
+   "tag": "v1.5.2",
+   "date": "2026-08-27"
+  },
+  {
+   "tag": "v1.5.3",
+   "date": "2026-08-28"
+  },
+  {
+   "tag": "v1.5.4",
+   "date": "2026-09-01"
+  },
+  {
+   "tag": "v1.5.5",
+   "date": "2026-09-03"
+  },
+  {
+   "tag": "v1.5.6",
+   "date": "2026-09-10"
+  },
+  {
+   "tag": "v1.5.7",
+   "date": "2026-09-11"
+  },
+  {
+   "tag": "v1.5.8",
+   "date": "2026-09-14"
+  },
+  {
+   "tag": "v1.5.9",
+   "date": "2026-09-21"
+  },
+  {
+   "tag": "v1.6.0",
+   "date": "2026-09-23"
+  }
+ ],
+ "first_commit": {
+  "hash": "6156778",
+  "date": "2026-02-04",
+  "subject": "Initial commit: XiaoBa CLI v0.1.0"
+ },
+ "feature_commits": [
+  {
+   "date": "2026-02-15",
+   "hash": "09313f0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加 web_search 和 web_fetch 工具",
+   "pr": null
+  },
+  {
+   "date": "2026-02-15",
+   "hash": "f750266",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加 agent-browser skill",
+   "pr": null
+  },
+  {
+   "date": "2026-02-15",
+   "hash": "12db1c0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 工具降级为 skill script + 飞书合并转发 + LLM failover",
+   "pr": null
+  },
+  {
+   "date": "2026-02-15",
+   "hash": "c576b3e",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 工具降级为 skill script + 飞书合并转发 + LLM failover",
+   "pr": null
+  },
+  {
+   "date": "2026-02-20",
+   "hash": "1e2b3ab",
+   "type": "feat",
+   "scope": "bridge",
+   "subject": "feat(bridge): P0 chime-in judge + P1 teammate profiles",
+   "pr": null
+  },
+  {
+   "date": "2026-02-20",
+   "hash": "1c8235f",
+   "type": "feat",
+   "scope": "bridge",
+   "subject": "feat(bridge): P0 chime-in judge + P1 teammate profiles",
+   "pr": null
+  },
+  {
+   "date": "2026-02-20",
+   "hash": "3490c3b",
+   "type": "feat",
+   "scope": "bridge",
+   "subject": "feat(bridge): final review fixes - C1 C2 C3 H1 H2 H3",
+   "pr": null
+  },
+  {
+   "date": "2026-02-20",
+   "hash": "5c1b47b",
+   "type": "feat",
+   "scope": "bridge",
+   "subject": "feat(bridge): final review fixes - C1 C2 C3 H1 H2 H3",
+   "pr": null
+  },
+  {
+   "date": "2026-02-28",
+   "hash": "c89ed93",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add SDK boundary dump to context-debug-logger",
+   "pr": null
+  },
+  {
+   "date": "2026-02-28",
+   "hash": "b16ef0d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add SDK boundary dump to context-debug-logger",
+   "pr": null
+  },
+  {
+   "date": "2026-03-02",
+   "hash": "57d3a92",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: normalize session transcript + pause_turn control (PR #12 with fixes)",
+   "pr": null
+  },
+  {
+   "date": "2026-03-02",
+   "hash": "976791a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: normalize session transcript + pause_turn control (PR #12 with fixes)",
+   "pr": null
+  },
+  {
+   "date": "2026-03-04",
+   "hash": "c7f3e37",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: implement tools skillification",
+   "pr": null
+  },
+  {
+   "date": "2026-03-04",
+   "hash": "66912ff",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: implement tools skillification",
+   "pr": null
+  },
+  {
+   "date": "2026-03-05",
+   "hash": "3f3fba2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: enable dual-channel messaging for message-based platforms",
+   "pr": null
+  },
+  {
+   "date": "2026-03-05",
+   "hash": "4476a69",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: enable dual-channel messaging for message-based platforms",
+   "pr": null
+  },
+  {
+   "date": "2026-03-06",
+   "hash": "01397ef",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add behavior.md for bot personality and enhance tool constraints",
+   "pr": null
+  },
+  {
+   "date": "2026-03-06",
+   "hash": "c7e1306",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add behavior.md for bot personality and enhance tool constraints",
+   "pr": null
+  },
+  {
+   "date": "2026-03-07",
+   "hash": "6df3db0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: implement multimodal image processing support",
+   "pr": null
+  },
+  {
+   "date": "2026-03-07",
+   "hash": "cc1c459",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: implement multimodal image processing support",
+   "pr": null
+  },
+  {
+   "date": "2026-03-08",
+   "hash": "ecb3fc3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: implement send_by_segments tool for long message handling",
+   "pr": null
+  },
+  {
+   "date": "2026-03-08",
+   "hash": "ca3e27b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: implement send_by_segments tool for long message handling",
+   "pr": null
+  },
+  {
+   "date": "2026-03-11",
+   "hash": "73a392c",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 优化消息发送机制和 behavior prompt",
+   "pr": null
+  },
+  {
+   "date": "2026-03-11",
+   "hash": "adf3c51",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 优化消息发送机制和 behavior prompt",
+   "pr": null
+  },
+  {
+   "date": "2026-03-15",
+   "hash": "66cd911",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 实现 Session 日志系统和日报生成功能",
+   "pr": null
+  },
+  {
+   "date": "2026-03-15",
+   "hash": "b4755fc",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 实现 Session 日志系统和日报生成功能",
+   "pr": null
+  },
+  {
+   "date": "2026-03-15",
+   "hash": "23746a0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 优化CatsCompany消息处理与会话清理机制",
+   "pr": null
+  },
+  {
+   "date": "2026-03-15",
+   "hash": "44d8fbb",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 优化CatsCompany消息处理与会话清理机制",
+   "pr": null
+  },
+  {
+   "date": "2026-03-17",
+   "hash": "8b35b94",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 移除客户端文件大小限制",
+   "pr": null
+  },
+  {
+   "date": "2026-03-17",
+   "hash": "8bafc23",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 移除客户端文件大小限制",
+   "pr": null
+  },
+  {
+   "date": "2026-03-17",
+   "hash": "f3bb1f2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 大模型请求失败时自动通知用户",
+   "pr": null
+  },
+  {
+   "date": "2026-03-17",
+   "hash": "2278e2b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 大模型请求失败时自动通知用户",
+   "pr": null
+  },
+  {
+   "date": "2026-03-20",
+   "hash": "a8d8b90",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: Electron 桌面打包 + Code Mode 过程展示 + Skill 依赖自动管理 (#19)",
+   "pr": 19
+  },
+  {
+   "date": "2026-03-20",
+   "hash": "20dc42f",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: Electron 桌面打包 + Code Mode 过程展示 + Skill 依赖自动管理 (#19)",
+   "pr": 19
+  },
+  {
+   "date": "2026-03-23",
+   "hash": "cec5792",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加微信机器人支持和优化 dashboard 配置",
+   "pr": null
+  },
+  {
+   "date": "2026-03-23",
+   "hash": "3bd950c",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 集成微信IM平台 + 优化依赖包大小",
+   "pr": null
+  },
+  {
+   "date": "2026-03-24",
+   "hash": "cd36709",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: macOS 打包支持和经验文档",
+   "pr": null
+  },
+  {
+   "date": "2026-03-25",
+   "hash": "1a3db15",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: CatsCompany 集成优化",
+   "pr": null
+  },
+  {
+   "date": "2026-03-26",
+   "hash": "7f1a456",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 改进 session 日志和用户偏好管理",
+   "pr": null
+  },
+  {
+   "date": "2026-03-26",
+   "hash": "2cbc96f",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 优化会话过期机制",
+   "pr": null
+  },
+  {
+   "date": "2026-03-28",
+   "hash": "a39ccbb",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加 GitHub Actions 自动打包和更新系统",
+   "pr": null
+  },
+  {
+   "date": "2026-03-30",
+   "hash": "f441a36",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 为 AgentSession 添加自动上下文压缩",
+   "pr": null
+  },
+  {
+   "date": "2026-04-02",
+   "hash": "1fb79fe",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 支持 read_file 工具读取并显示图片内容",
+   "pr": null
+  },
+  {
+   "date": "2026-04-06",
+   "hash": "0ef4c50",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 图片读取优化 & Grep工具三层Fallback机制",
+   "pr": null
+  },
+  {
+   "date": "2026-04-06",
+   "hash": "1649af8",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加默认工作空间配置",
+   "pr": null
+  },
+  {
+   "date": "2026-04-06",
+   "hash": "76db682",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 为每个 bot 实例分配独立工作空间",
+   "pr": null
+  },
+  {
+   "date": "2026-04-07",
+   "hash": "24697f2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加 /stop 和改进 /clear 命令",
+   "pr": null
+  },
+  {
+   "date": "2026-04-07",
+   "hash": "09171a0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 简化 skill 发布流程 + 重构上下文压缩器",
+   "pr": null
+  },
+  {
+   "date": "2026-04-07",
+   "hash": "17599ba",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 添加 vision-analysis skill",
+   "pr": null
+  },
+  {
+   "date": "2026-04-16",
+   "hash": "e37e672",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add runtime inspector log handoff",
+   "pr": null
+  },
+  {
+   "date": "2026-04-16",
+   "hash": "a44bc6d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 内置运行时改为固定下载并加固来源校验（含桌面端 runtime 接入） (#28)",
+   "pr": 28
+  },
+  {
+   "date": "2026-04-21",
+   "hash": "b99107d",
+   "type": "feat",
+   "scope": "runtime",
+   "subject": "feat(runtime): auto ingest session logs to AutoDev",
+   "pr": null
+  },
+  {
+   "date": "2026-04-21",
+   "hash": "255603c",
+   "type": "feat",
+   "scope": "runtime",
+   "subject": "feat(runtime): add session-aware runtime logging",
+   "pr": null
+  },
+  {
+   "date": "2026-05-06",
+   "hash": "9485bed",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add CatsCo productization workspace",
+   "pr": null
+  },
+  {
+   "date": "2026-05-11",
+   "hash": "80be9a8",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: support atomic CatsCompany attachments and polish settings",
+   "pr": null
+  },
+  {
+   "date": "2026-05-15",
+   "hash": "b646a3b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add CatsCo chat local attachments (#46)",
+   "pr": 46
+  },
+  {
+   "date": "2026-05-18",
+   "hash": "62c3a85",
+   "type": "feat",
+   "scope": "tools",
+   "subject": "feat(tools): 优化常用目录解析与 Windows shell 执行 (#71)",
+   "pr": 71
+  },
+  {
+   "date": "2026-06-01",
+   "hash": "7e3fd2f",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): manage published versions",
+   "pr": null
+  },
+  {
+   "date": "2026-06-01",
+   "hash": "51f5652",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: CatsCo 机器人管理功能 (#78)",
+   "pr": 78
+  },
+  {
+   "date": "2026-06-02",
+   "hash": "51cd47f",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): connect with CatsCo login",
+   "pr": null
+  },
+  {
+   "date": "2026-06-11",
+   "hash": "6131e6a",
+   "type": "feat",
+   "scope": "catsco",
+   "subject": "feat(catsco): add execution boundaries for virtual employees",
+   "pr": null
+  },
+  {
+   "date": "2026-06-24",
+   "hash": "1c214dc",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: allow remote execute_shell with server grant (#145)",
+   "pr": 145
+  },
+  {
+   "date": "2026-06-24",
+   "hash": "353fd63",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add prompt stack and transient guidance (#138)",
+   "pr": 138
+  },
+  {
+   "date": "2026-06-24",
+   "hash": "a6fbadb",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add async prompt mode router",
+   "pr": null
+  },
+  {
+   "date": "2026-06-25",
+   "hash": "36a4bc6",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: preserve recent episodes during compaction",
+   "pr": null
+  },
+  {
+   "date": "2026-06-29",
+   "hash": "d7f7099",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add mode-local interaction style",
+   "pr": null
+  },
+  {
+   "date": "2026-07-08",
+   "hash": "0c2a215",
+   "type": "feat",
+   "scope": "tools",
+   "subject": "feat(tools): support including directories in glob",
+   "pr": null
+  },
+  {
+   "date": "2026-06-29",
+   "hash": "ed051b9",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add structured shell output contract",
+   "pr": null
+  },
+  {
+   "date": "2026-07-15",
+   "hash": "4ace14e",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): support runtime-local skills for cloud agents",
+   "pr": null
+  },
+  {
+   "date": "2026-07-15",
+   "hash": "f4c0167",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): register runtime skill management tool",
+   "pr": null
+  },
+  {
+   "date": "2026-07-14",
+   "hash": "a24ed5a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: persist effective LLM config per bot",
+   "pr": null
+  },
+  {
+   "date": "2026-07-15",
+   "hash": "7073ef8",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: resolve LLM config from bot definition",
+   "pr": null
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "744493f",
+   "type": "feat",
+   "scope": "catsco",
+   "subject": "feat(catsco): import files from user devices into agent workspace (#211)",
+   "pr": 211
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "f5cd64a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 缺失会话时从 CatsCompany 恢复上下文",
+   "pr": null
+  },
+  {
+   "date": "2026-07-20",
+   "hash": "8a6c040",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add dedicated Memory Branch model config",
+   "pr": null
+  },
+  {
+   "date": "2026-07-20",
+   "hash": "ecc2109",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: sync cloud bot model runtime",
+   "pr": null
+  },
+  {
+   "date": "2026-07-21",
+   "hash": "d012926",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 注入 CatsCo 会话附件目录",
+   "pr": null
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "9701a55",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: align relay model metadata with models.dev",
+   "pr": null
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "ec2e00a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: resolve multimodal support from models.dev",
+   "pr": null
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "3de83fa",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add configurable vision fallback for read_file",
+   "pr": null
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "711229f",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): allow all users to manage runtime skills",
+   "pr": null
+  },
+  {
+   "date": "2026-07-24",
+   "hash": "624eb00",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 将 system prompt 纳入 BotDefinition",
+   "pr": null
+  },
+  {
+   "date": "2026-07-28",
+   "hash": "e3b8974",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: sync bot definitions with CatsCompany",
+   "pr": null
+  },
+  {
+   "date": "2026-07-28",
+   "hash": "6f13b2a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 完成 Bot Skill 本地与云端工作区同步",
+   "pr": null
+  },
+  {
+   "date": "2026-07-30",
+   "hash": "2b2e9d2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add durable checkpoint compaction",
+   "pr": null
+  },
+  {
+   "date": "2026-08-01",
+   "hash": "2fcb788",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: rebuild cache trace monitoring as sidecar",
+   "pr": null
+  },
+  {
+   "date": "2026-08-02",
+   "hash": "c382b82",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: capture conversation interruption diagnostics",
+   "pr": null
+  },
+  {
+   "date": "2026-08-02",
+   "hash": "616455d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: control cache tracing from dashboard",
+   "pr": null
+  },
+  {
+   "date": "2026-08-02",
+   "hash": "c3e34ac",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add explicit Responses cache boundaries",
+   "pr": null
+  },
+  {
+   "date": "2026-08-06",
+   "hash": "e4ebf1a",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): add secure local workspace RPC",
+   "pr": null
+  },
+  {
+   "date": "2026-08-06",
+   "hash": "3bb5164",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: automate Tianyi worker images (#271)",
+   "pr": 271
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "ea8a076",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): image lifecycle - keep 6 worker images, auto-prune after bake",
+   "pr": null
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "9725f33",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): apply application artifact updates with validation and rollback",
+   "pr": null
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "975a1d8",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): serial artifact deployment across worker targets",
+   "pr": null
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "0c4b205",
+   "type": "feat",
+   "scope": "runtime",
+   "subject": "feat(runtime): inject trusted artifact context (#348)",
+   "pr": 348
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "97d4dd7",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): Part A application artifact updates (#351)",
+   "pr": 351
+  },
+  {
+   "date": "2026-08-11",
+   "hash": "a165934",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): expose semantic page context to runtime (#353)",
+   "pr": 353
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "af79671",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: report bundled system prompt snapshot",
+   "pr": null
+  },
+  {
+   "date": "2026-08-14",
+   "hash": "7b75db6",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: scope artifact context refs to local tools",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "9b17079",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): support exact local skill deletion",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "15a51cf",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: reduce Dashboard to CatsCo Connector",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "9f7cd13",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add Connector local management",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "3289d0c",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add Connector Agent switching",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "ce52a37",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): 接入可信 Runtime 授权协议",
+   "pr": null
+  },
+  {
+   "date": "2026-08-19",
+   "hash": "460fffa",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: make desktop connector tray-first",
+   "pr": null
+  },
+  {
+   "date": "2026-08-21",
+   "hash": "ef4443f",
+   "type": "perf",
+   "scope": "worker-image",
+   "subject": "perf(worker-image): add live bake telemetry and hardened-base fast path",
+   "pr": null
+  },
+  {
+   "date": "2026-08-23",
+   "hash": "2c449b6",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): add isolated bot skill candidate workspace",
+   "pr": null
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "60313c0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: expose SkillHub workspace for server runtimes",
+   "pr": null
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "0308ac4",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: mark DeepSeek relay profile as vision capable",
+   "pr": null
+  },
+  {
+   "date": "2026-08-25",
+   "hash": "67f6bac",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): add dormant activation state journal",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "db71296",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add runtime skill activation ack worker",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "23bd005",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add leased turn skill snapshots",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "3ad77f5",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: bind skills to turn snapshots",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "7a0f3ff",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: paginate SkillHub runtime workspaces",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "5d181fc",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: scope Artifact task refs to the current turn",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "484348d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: consume cloud catalog runtime metadata",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "2d04624",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: sync cloud catalog runtime metadata",
+   "pr": null
+  },
+  {
+   "date": "2026-09-02",
+   "hash": "885e62a",
+   "type": "feat",
+   "scope": "domain",
+   "subject": "feat(domain): accept CatsCo cn endpoints alongside cc (#444)",
+   "pr": 444
+  },
+  {
+   "date": "2026-09-08",
+   "hash": "e3f38e3",
+   "type": "perf",
+   "scope": "desktop",
+   "subject": "perf(desktop): restore differential downloads and speed up installs (#453)",
+   "pr": 453
+  },
+  {
+   "date": "2026-09-07",
+   "hash": "28da5a8",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add instance-shared local knowledge skill",
+   "pr": null
+  },
+  {
+   "date": "2026-09-07",
+   "hash": "35d5bd5",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: improve knowledge fidelity and resolve short document citations",
+   "pr": null
+  },
+  {
+   "date": "2026-09-09",
+   "hash": "18f9914",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: sync runtime skill workspace to agent",
+   "pr": null
+  },
+  {
+   "date": "2026-09-09",
+   "hash": "1354714",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: bake Foshan public worker images with isolated deployment profiles (#459)",
+   "pr": 459
+  },
+  {
+   "date": "2026-09-10",
+   "hash": "a9bb6d2",
+   "type": "feat",
+   "scope": "knowledge",
+   "subject": "feat(knowledge): guide source-backed ingestion and reusable knowledge (#467)",
+   "pr": 467
+  },
+  {
+   "date": "2026-09-10",
+   "hash": "4cda875",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: scope connector grants to trusted skills",
+   "pr": null
+  },
+  {
+   "date": "2026-09-11",
+   "hash": "118828b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: offer owner body transfer for stale bindings",
+   "pr": null
+  },
+  {
+   "date": "2026-09-15",
+   "hash": "709c70a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add audited knowledge deletion through skill",
+   "pr": null
+  },
+  {
+   "date": "2026-09-15",
+   "hash": "f7c80a7",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: support hashed cleanup of malformed knowledge files",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "a555d31",
+   "type": "feat",
+   "scope": "bot-skills",
+   "subject": "feat(bot-skills): raise BotDefinition Skill reference cap to 1024",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "50bbb9d",
+   "type": "feat",
+   "scope": "bot-skills",
+   "subject": "feat(bot-skills): allow a 5MiB file inside a published Skill",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "6c5d082",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: give the runtime live machine-resource awareness",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "7bada39",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: keep only the run log workspace in Connector local management",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "92add20",
+   "type": "feat",
+   "scope": "catscompany",
+   "subject": "feat(catscompany): sticky cc/cn endpoint failover with cn defaults",
+   "pr": null
+  },
+  {
+   "date": "2026-09-21",
+   "hash": "bf8a63d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: align auxiliary CatsCo clients with the running cc/cn endpoint family",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "d43f1f3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: apply SkillHub definition without restart",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "da80b33",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: garbage collect expired Skill trash",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "2e8229a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: run desktop connector without local bot",
+   "pr": null
+  }
+ ],
+ "reverts": [
+  {
+   "date": "2026-03-06",
+   "hash": "324b927",
+   "subject": "revert: remove vendor SDK from main branch"
+  },
+  {
+   "date": "2026-03-06",
+   "hash": "0b06924",
+   "subject": "revert: remove vendor SDK from main branch"
+  },
+  {
+   "date": "2026-03-07",
+   "hash": "bb7c08c",
+   "subject": "revert: restore toolPolicy mechanism"
+  },
+  {
+   "date": "2026-03-07",
+   "hash": "1faca5a",
+   "subject": "revert: restore toolPolicy mechanism"
+  },
+  {
+   "date": "2026-06-02",
+   "hash": "0f56273",
+   "subject": "Revert \"fix(skillhub): restore skills navigation entry\""
+  },
+  {
+   "date": "2026-07-02",
+   "hash": "6a68746",
+   "subject": "revert: restore main to post-PR-163 baseline"
+  },
+  {
+   "date": "2026-07-27",
+   "hash": "f7b1c71",
+   "subject": "Revert \"统一 GPT-5.6 官方上下文规格 (#253)\" (#254)"
+  },
+  {
+   "date": "2026-07-29",
+   "hash": "bd21b87",
+   "subject": "Revert \"test: isolate prompt sync from cloud API\""
+  },
+  {
+   "date": "2026-07-29",
+   "hash": "c7e8f40",
+   "subject": "Revert \"Revert \"test: isolate prompt sync from cloud API\"\""
+  },
+  {
+   "date": "2026-08-14",
+   "hash": "0096543",
+   "subject": "revert: remove automatic artifact context injection"
+  },
+  {
+   "date": "2026-08-18",
+   "hash": "923c17b",
+   "subject": "Revert \"Merge pull request #365 from buildsense-ai/codex/phase2-a3-formal-workspace\""
+  }
+ ]
+}

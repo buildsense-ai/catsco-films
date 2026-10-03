@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CatsCo — one task, every authorized computer</title>
+<!--
+  CatsCo promo, 28 s. One continuous take: the route a single task takes across authorized devices
+  (phone → company PC → cloud → home workstation → phone) is drawn along the CatsCo "M"; the last
+  pull-out shows the route *is* the logo.
+
+  Contract (read by tools/render.py):
+    window.__ready            resolves when fonts/images are decoded
+    window.__seek(t)          sets every style for time t — pure: seek(a); seek(b); seek(a) gives frame a
+    window.__motion(t0, t1)   farthest on-screen travel in px between two times (sizes the motion-blur shutter)
+    window.__meta             { dur, w, h }
+  Flags: ?play (live, with ../out/mix.wav if present) · ?t=12.3 (pin a frame) · &hud
+  All mock data (devices, files, test counts) is invented for the film.
+-->
+<style>
+  :root {
+    --ground: #F4F6F4; --ink: #15231F; --ink2: #3D4B47; --mute: #8A9692; --line: #E1E7E4;
+    --g50: #F0FAF6; --g100: #DDF4EB; --g200: #BDE8D8; --g400: #3FB894; --g500: #1A9D7A; --g600: #148363; --g900: #152F28;
+    --red: #E5484D; --term: #0F1A17;
+    --sans: "PingFang SC", -apple-system, "SF Pro Display", "Helvetica Neue", "Noto Sans SC", sans-serif;
+    --mono: "SF Mono", Menlo, "JetBrains Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+  body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  #stage { position: absolute; inset: 0; overflow: hidden; }
+  #ground { position: absolute; inset: 0;
+    background: radial-gradient(1400px 900px at 50% 42%, #FFFFFF 0%, #F6F8F6 55%, #EDF1EE 100%); }
+  #world { position: absolute; left: 0; top: 0; width: 1px; height: 1px; transform-origin: 0 0; }
+  #screen { position: absolute; inset: 0; pointer-events: none; }
+  .abs { position: absolute; }
+  .lat { position: absolute; left: -3000px; top: -3000px; width: 13000px; height: 10000px; }
+  #lat1 { background-image: radial-gradient(circle, rgba(21,35,31,.13) 2.2px, transparent 2.8px); background-size: 110px 110px; }
+  #lat2 { background-image: radial-gradient(circle, rgba(21,35,31,.12) 9px, transparent 11px); background-size: 550px 550px; background-position: 55px 55px; }
+  svg.world { position: absolute; left: 0; top: 0; overflow: visible; }
+
+  /* cards */
+  .card { position: absolute; background: #fff; border-radius: 22px; border: 1px solid #E3E9E6;
+    box-shadow: 0 30px 80px rgba(24,57,47,.12), 0 6px 18px rgba(24,57,47,.06); overflow: hidden; transform-origin: 50% 100%; }
+  .titlebar { position: absolute; left: 0; right: 0; top: 0; height: 52px; border-bottom: 1px solid #EEF2F0; background: #FBFCFB; }
+  .lights { position: absolute; left: 22px; top: 20px; display: flex; gap: 8px; }
+  .lights i { width: 12px; height: 12px; border-radius: 50%; background: #E6EBE8; display: block; }
+  .ttl { position: absolute; left: 0; right: 0; top: 15px; text-align: center; font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: .2px; }
+  .ttl span { color: var(--mute); font-weight: 500; }
+  .working { position: absolute; right: 18px; top: 12px; height: 28px; padding: 0 12px 0 10px; border-radius: 14px;
+    background: var(--g50); color: var(--g600); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+  .working b { width: 8px; height: 8px; border-radius: 50%; background: var(--g500); display: block; }
+  .authed { position: absolute; left: 96px; top: 13px; height: 26px; padding: 0 10px; border-radius: 13px; border: 1px solid var(--g200);
+    color: var(--g600); font-size: 12px; font-weight: 600; line-height: 24px; }
+
+  .term { position: absolute; left: 0; right: 0; top: 52px; bottom: 0; background: var(--term); padding: 26px 34px; }
+  .tl { position: absolute; left: 34px; font: 500 19px/32px var(--mono); color: #DDE7E3; white-space: pre; }
+  .tl.dim { color: #7F918B; } .tl.ok { color: #62D4AE; font-weight: 700; } .tl.err { color: #FF7A7E; } .tl.err2 { color: #C98A8C; }
+  .tl.head { color: #62D4AE; }
+  .tl .k { color: #62D4AE; }
+  .caret { position: absolute; width: 11px; height: 22px; background: #62D4AE; }
+
+  .diff { position: absolute; width: 560px; height: 170px; right: 26px; bottom: 26px; background: #fff; border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.35); overflow: hidden; transform-origin: 0% 0%; }
+  .diff .dh { height: 40px; border-bottom: 1px solid #EEF2F0; font: 600 14px/40px var(--mono); padding-left: 16px; color: var(--ink2); }
+  .diff .dh em { font-style: normal; color: var(--g600); margin-left: 10px; } .diff .dh i { font-style: normal; color: var(--red); margin-left: 6px; }
+  .diff .dl { font: 500 15px/36px var(--mono); padding-left: 16px; white-space: pre; color: var(--ink2); }
+  .diff .dl.m { background: #FDECEC; color: #B3272C; } .diff .dl.p { background: #E6F6EF; color: #0E6B51; }
+
+  .tests { position: absolute; left: 0; right: 0; top: 52px; bottom: 0; padding: 26px 34px; }
+  .th { font-size: 23px; font-weight: 650; color: var(--ink); }
+  .cnt { position: absolute; right: 34px; top: 30px; font: 600 18px var(--mono); color: var(--ink2); }
+  .bar { position: absolute; left: 34px; right: 34px; top: 76px; height: 8px; border-radius: 4px; background: #EDF1EF; overflow: hidden; }
+  .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--g500); border-radius: 4px; display: block; }
+  .row { position: absolute; left: 34px; right: 34px; height: 50px; border-bottom: 1px solid #F0F3F1; }
+  .row .nm { position: absolute; left: 42px; top: 12px; font: 500 18px var(--mono); color: var(--ink2); }
+  .row .rt { position: absolute; right: 0; top: 13px; font: 500 16px var(--mono); color: var(--mute); }
+  .row .rt.err { color: var(--red); font-family: var(--sans); font-weight: 600; }
+  .row .tag { position: absolute; left: 330px; top: 12px; height: 24px; padding: 0 9px; border-radius: 12px; background: var(--g50); color: var(--g600); font-size: 12px; font-weight: 600; line-height: 24px; }
+  .ico { position: absolute; left: 0; top: 11px; width: 26px; height: 26px; }
+  .ico > * { position: absolute; inset: 0; }
+  .status { position: absolute; left: 34px; bottom: 96px; font-size: 16px; color: var(--mute); }
+  .status b { color: var(--g600); font-weight: 600; }
+  .banner { position: absolute; left: 34px; right: 34px; bottom: 26px; height: 56px; border-radius: 14px; background: var(--g500); color: #fff;
+    font-size: 20px; font-weight: 650; line-height: 56px; padding-left: 22px; transform-origin: 50% 50%; }
+  .banner span { font-weight: 500; opacity: .8; margin-left: 12px; font-size: 16px; }
+
+  .branch { position: absolute; background: #fff; border-radius: 20px; border: 1.5px solid var(--g200);
+    box-shadow: 0 26px 70px rgba(24,57,47,.12); overflow: hidden; transform-origin: 0% 50%; }
+  .branch .bh { position: absolute; left: 26px; top: 22px; font-size: 21px; font-weight: 650; }
+  .branch .bs { position: absolute; left: 26px; top: 54px; font-size: 14px; color: var(--mute); }
+  .branch .br { position: absolute; left: 26px; right: 26px; font-size: 16px; color: var(--ink2); }
+  .branch .br.q { font-family: var(--mono); font-size: 15px; }
+  .branch .br .x { position: absolute; right: 0; color: var(--mute); font-size: 13px; }
+  .found { position: absolute; left: 22px; right: 22px; height: 112px; border-radius: 14px; border: 2px solid var(--g500); background: var(--g50); padding: 14px 16px; }
+  .found .fh { font-size: 13px; color: var(--g600); font-weight: 650; }
+  .found .fq { margin-top: 8px; font-size: 17px; line-height: 26px; color: var(--ink); }
+  .found .fq code { font-family: var(--mono); background: #fff; border-radius: 5px; padding: 1px 6px; color: var(--g600); font-weight: 600; }
+
+  .cloud { position: absolute; background: #fff; border-radius: 26px; border: 1.5px solid var(--g200);
+    box-shadow: 0 22px 60px rgba(24,57,47,.12); transform-origin: 50% 100%; }
+  .cloud img { position: absolute; left: 26px; top: 34px; width: 80px; }
+  .cloud .c1 { position: absolute; left: 124px; top: 24px; font-size: 24px; font-weight: 650; }
+  .cloud .c2 { position: absolute; left: 124px; top: 62px; font-size: 15px; color: var(--mute); }
+  .cloud .c2 b { color: var(--g600); font-weight: 600; }
+
+  /* phone */
+  .phone { position: absolute; width: 430px; height: 880px; border-radius: 58px; background: #fff; border: 1px solid #DCE3E0;
+    box-shadow: 0 40px 90px rgba(24,57,47,.16), 0 8px 20px rgba(24,57,47,.06), inset 0 0 0 7px #F3F6F4; overflow: hidden; transform-origin: 50% 0%; }
+  .sb { position: absolute; top: 24px; font-size: 15px; font-weight: 650; }
+  .notch { position: absolute; left: 155px; top: 16px; width: 120px; height: 32px; border-radius: 16px; background: #15231F; }
+  .sig { position: absolute; right: 34px; top: 26px; display: flex; gap: 3px; align-items: flex-end; }
+  .sig i { display: block; width: 4px; background: var(--ink); border-radius: 1px; }
+  .bat { position: absolute; right: 64px; top: 27px; width: 24px; height: 12px; border: 1.5px solid var(--ink); border-radius: 3px; }
+  .bat::after { content: ""; position: absolute; left: 1.5px; top: 1.5px; width: 14px; height: 6px; background: var(--ink); border-radius: 1px; }
+  .hdr { position: absolute; left: 0; right: 0; top: 62px; height: 64px; border-bottom: 1px solid #EEF2F0; }
+  .hdr img { position: absolute; left: 26px; top: 22px; width: 46px; }
+  .hdr .nm { position: absolute; left: 84px; top: 8px; font-size: 18px; font-weight: 650; }
+  .hdr .st { position: absolute; left: 84px; top: 34px; font-size: 12.5px; color: var(--g600); }
+  .av { position: absolute; width: 30px; height: 30px; border-radius: 50%; background: var(--g50); border: 1px solid var(--g200); }
+  .av img { position: absolute; left: 5px; top: 10px; width: 19px; }
+  .bub { position: absolute; font-size: 15.5px; line-height: 23px; padding: 10px 14px; border-radius: 18px; }
+  .bub.ai { background: #F1F4F2; color: var(--ink); border-top-left-radius: 6px; }
+  .bub.me { background: var(--g500); color: #fff; border-top-right-radius: 6px; }
+  .chipd { height: 34px; margin-top: 8px; border-radius: 10px; background: #fff; border: 1px solid #E3E9E6; font-size: 14px; line-height: 32px; padding-left: 10px; position: relative; }
+  .chipd b { font-weight: 600; } .chipd span { color: var(--mute); }
+  .chipd i { position: absolute; right: 10px; top: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--g500); }
+  .comp { position: absolute; left: 16px; right: 16px; bottom: 28px; border-radius: 26px; border: 1.5px solid #DDE5E1; background: #fff; }
+  .comp .tx { position: absolute; left: 20px; top: 15px; width: 300px; font-size: 15.5px; line-height: 23px; color: var(--ink); }
+  .comp .ph { position: absolute; left: 20px; top: 15px; font-size: 15.5px; line-height: 23px; color: #A7B1AD; }
+  .send { position: absolute; right: 8px; bottom: 8px; width: 40px; height: 40px; border-radius: 50%; }
+  .send svg { position: absolute; left: 10px; top: 10px; }
+  .file { height: 52px; margin-top: 8px; border-radius: 12px; background: #fff; border: 1px solid #E3E9E6; position: relative; }
+  .file i { position: absolute; left: 10px; top: 9px; width: 34px; height: 34px; border-radius: 8px; font: 700 10px/34px var(--mono); text-align: center; font-style: normal; color: #fff; }
+  .file b { position: absolute; left: 54px; top: 7px; font: 600 14px var(--mono); }
+  .file span { position: absolute; left: 54px; top: 28px; font-size: 12px; color: var(--mute); }
+  .sys { position: absolute; left: 0; right: 0; text-align: center; font-size: 12px; color: var(--mute); }
+
+  .node { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: #fff; border: 5px solid var(--g500); }
+  .token { position: absolute; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%;
+    background: radial-gradient(circle at 36% 32%, #7FE0C2 0%, #2BB08A 45%, #148363 100%);
+    box-shadow: 0 0 0 5px rgba(26,157,122,.16), 0 0 28px rgba(26,157,122,.55); }
+  .ring { position: absolute; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; border: 3px solid var(--g500); }
+  .chip { position: absolute; height: 38px; padding: 0 14px 0 12px; border-radius: 19px; background: #fff; border: 1.5px solid var(--g200);
+    box-shadow: 0 10px 26px rgba(24,57,47,.14); font: 600 15px/35px var(--mono); color: var(--ink); white-space: nowrap; transform-origin: 0 50%; }
+  .chip em { font-style: normal; color: var(--g600); } .chip i { font-style: normal; color: var(--red); }
+
+  /* screen layer */
+  .line { position: absolute; left: 0; right: 0; text-align: center; font-size: 66px; font-weight: 650; letter-spacing: -.5px; color: var(--ink); white-space: nowrap; }
+  .line em { font-style: normal; color: var(--g500); }
+  #dot { position: absolute; background: var(--g500); }
+  .hit { position: absolute; left: 0; right: 0; top: 862px; text-align: center; font-size: 76px; font-weight: 700; letter-spacing: -.5px; color: var(--ink); }
+  .hit em { font-style: normal; color: var(--g500); }
+  #word { position: absolute; left: 0; right: 0; top: 592px; text-align: center; font-size: 104px; font-weight: 700; letter-spacing: -2px; color: var(--ink); font-family: "SF Pro Display", -apple-system, var(--sans); }
+  #word span { display: inline-block; }
+  #tag { position: absolute; left: 0; right: 0; top: 734px; text-align: center; font-size: 34px; font-weight: 500; color: var(--ink2); letter-spacing: 1px; }
+  #url { position: absolute; left: 50%; top: 808px; height: 44px; padding: 0 22px; margin-left: -120px; width: 240px; border-radius: 22px; border: 1.5px solid var(--g200);
+    text-align: center; font: 600 20px/41px var(--mono); color: var(--g600); }
+  #fade { position: absolute; inset: 0; background: #fff; }
+  #hud { position: absolute; left: 16px; top: 12px; font: 600 14px var(--mono); color: #c00; display: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="ground"></div>
+  <div id="world">
+    <div class="lat" id="lat1"></div>
+    <div class="lat" id="lat2"></div>
+    <svg class="world" width="1" height="1">
+      <path id="ghost" fill="none" stroke="#C9D5D0" stroke-dasharray="14 18" stroke-linecap="round" />
+      <path id="glow" fill="none" stroke="#1A9D7A" stroke-opacity=".16" stroke-linejoin="miter" stroke-miterlimit="10" />
+      <path id="route" fill="none" stroke="#1A9D7A" stroke-linejoin="miter" stroke-miterlimit="10" />
+      <path id="inner" fill="none" stroke="#1A9D7A" stroke-linejoin="miter" stroke-miterlimit="10" />
+      <path id="fork" fill="none" stroke="#1A9D7A" stroke-dasharray="10 12" stroke-linecap="round" />
+    </svg>
+    <img id="logo" class="abs" src="assets/catsco-logo.webp" alt="">
+    <div class="node" id="n1"></div><div class="node" id="n2"></div><div class="node" id="n3"></div>
+
+    <!-- company PC -->
+    <div class="card" id="pc" style="width:1040px;height:640px">
+      <div class="titlebar"><div class="lights"><i></i><i></i><i></i></div><div class="authed">已授权</div>
+        <div class="ttl">公司电脑 <span>· office-mbp · macOS</span></div>
+        <div class="working"><b></b>小八 工作中</div></div>
+      <div class="term" id="term">
+        <div class="tl head" style="top:26px">● catsco runtime · office-mbp · 已连接</div>
+        <div class="tl" style="top:66px"><span class="k">›</span> 读取  ~/work/billing-web/build.log</div>
+        <div class="tl dim" style="top:98px">  vite v5.4.2 building for production…</div>
+        <div class="tl dim" style="top:130px">  ✓ 1,284 modules transformed.</div>
+        <div class="tl err" style="top:162px">  ✗ src/invoice/total.ts:42:18</div>
+        <div class="tl err2" style="top:194px">    TS2345: 'number | undefined' 不能赋值给 'number'</div>
+        <div class="tl" style="top:238px"><span class="k">›</span> 定位  total.ts:42 · 折扣为空时没有兜底</div>
+        <div class="tl" style="top:270px"><span class="k">›</span> 修改  total.ts  <span style="color:#62D4AE">+3</span> <span style="color:#FF7A7E">−1</span></div>
+        <div class="tl" style="top:314px"><span class="k">›</span> npm run build</div>
+        <div class="tl ok" style="top:346px">  ✓ 构建通过 · 12.4s</div>
+        <div class="caret" id="caret"></div>
+      </div>
+      <div class="diff" id="diff">
+        <div class="dh">src/invoice/total.ts<em>+3</em><i>−1</i></div>
+        <div class="dl">41   const items = order.items ?? []</div>
+        <div class="dl m">42 − const total = sum(items) - discount</div>
+        <div class="dl p">42 + const total = sum(items) - (discount ?? 0)</div>
+      </div>
+    </div>
+
+    <!-- cloud -->
+    <div class="cloud" id="cloud" style="width:560px;height:118px">
+      <img src="assets/catsco-brand-mark.webp" alt="">
+      <div class="c1">CatsCo Cloud</div>
+      <div class="c2"><b>小八在线</b> · 上下文已同步 · 3 台设备</div>
+    </div>
+
+    <!-- home workstation -->
+    <div class="card" id="home" style="width:1040px;height:640px">
+      <div class="titlebar"><div class="lights"><i></i><i></i><i></i></div><div class="authed">已授权</div>
+        <div class="ttl">家用工作站 <span>· home-ws · Ubuntu 24.04</span></div>
+        <div class="working"><b></b>小八 工作中</div></div>
+      <div class="tests">
+        <div class="th">完整测试 · billing-web</div>
+        <div class="cnt" id="cnt">0 / 214</div>
+        <div class="bar"><i id="barfill"></i></div>
+        <div id="rows"></div>
+        <div class="status" id="mainst"><b>主 Agent</b> 继续：运行 e2e/checkout.spec.ts …</div>
+        <div class="banner" id="banner">✓ 214 项测试全部通过<span>用时 3 分 12 秒</span></div>
+      </div>
+    </div>
+
+    <div class="branch" id="branch" style="width:580px;height:470px">
+      <div class="bh">⑂ Branch Agent</div>
+      <div class="bs">隔离上下文 · 并行检索历史会话</div>
+      <div class="br q" id="b0" style="top:104px">搜索 “timezone.spec 失败”</div>
+      <div class="br" id="b1" style="top:146px">会话 #231 · 昨天<span class="x">无关</span></div>
+      <div class="br" id="b2" style="top:184px">会话 #226 · 2 天前<span class="x">无关</span></div>
+      <div class="found" id="b3" style="top:230px">
+        <div class="fh">✓ 找到 · 会话 #218 · 3 天前</div>
+        <div class="fq">“CI 和工作站时区不一致，跑测试前<br>需要设置 <code>TZ=Asia/Shanghai</code>”</div>
+      </div>
+      <div class="br" id="b4" style="top:370px;color:#8A9692;font-size:14px">结果将作为 observation 回到主线</div>
+    </div>
+
+    <!-- phones -->
+    <div class="phone" id="phA">
+      <div class="notch"></div>
+      <div class="sb" style="left:40px">18:42</div><div class="bat"></div>
+      <div class="sig"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></div>
+      <div class="hdr"><img src="assets/catsco-brand-mark.webp" alt=""><div class="nm">小八</div><div class="st">● 工程助理 · 在线</div></div>
+      <div class="av" id="avA0" style="left:18px;top:146px"><img src="assets/catsco-brand-mark.webp" alt=""></div>
+      <div class="bub ai" id="greet" style="left:58px;top:144px">晚上好，我在。今天要我做什么？</div>
+      <div class="bub me" id="mine" style="right:18px;top:204px;width:318px"></div>
+      <div class="av" id="avA1" style="left:18px;top:318px"><img src="assets/catsco-brand-mark.webp" alt=""></div>
+      <div class="bub ai" id="ack" style="left:58px;top:316px;width:322px">收到。将在你授权的 2 台设备上完成：
+        <div class="chipd" id="ackc1">🖥  <b>公司电脑</b> <span>office-mbp</span><i></i></div>
+        <div class="chipd" id="ackc2">🏠  <b>家用工作站</b> <span>home-ws</span><i></i></div>
+      </div>
+      <div class="comp" id="compA">
+        <div class="ph" id="phA_ph">给小八发消息…</div>
+        <div class="tx" id="typed"></div>
+        <div class="send" id="sendA"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 16V4M4.5 9.5 10 4l5.5 5.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="abs" id="touch" style="width:46px;height:46px;border-radius:50%;background:rgba(21,35,31,.22)"></div>
+      <div class="abs" id="touchr" style="width:46px;height:46px;border-radius:50%;border:2.5px solid rgba(21,35,31,.35)"></div>
+    </div>
+
+    <div class="phone" id="phB">
+      <div class="notch"></div>
+      <div class="sb" style="left:40px">19:18</div><div class="bat"></div>
+      <div class="sig"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></div>
+      <div class="hdr"><img src="assets/catsco-brand-mark.webp" alt=""><div class="nm">小八</div><div class="st">● 工程助理 · 在线</div></div>
+      <div class="bub me" style="right:18px;top:144px;width:300px;opacity:.45">读取公司电脑的构建日志，把项目修好…</div>
+      <div class="sys" style="top:212px">小八 · 在 2 台设备上工作了 36 分钟</div>
+      <div class="av" id="avB" style="left:18px;top:246px"><img src="assets/catsco-brand-mark.webp" alt=""></div>
+      <div class="bub ai" id="reply" style="left:58px;top:244px;width:338px">
+        <div style="font-weight:650;font-size:17px">搞定了 ✓</div>
+        <div style="margin-top:6px">公司电脑 · 构建已修复</div>
+        <div>家用工作站 · 214 项测试全部通过</div>
+        <div style="color:#6F7C78;font-size:14px;margin-top:2px">你一台电脑都不用打开。</div>
+        <div class="file" id="fileA"><i style="background:#1A9D7A">DIFF</i><b>patch-total.diff</b><span>2 KB · 1 个文件</span></div>
+        <div class="file" id="fileB"><i style="background:#E5484D">PDF</i><b>test-report.pdf</b><span>184 KB · 214 项</span></div>
+      </div>
+      <div class="comp" style="height:58px"><div class="ph">给小八发消息…</div>
+        <div class="send" style="background:#CFD8D4"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 16V4M4.5 9.5 10 4l5.5 5.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </div>
+
+    <div class="chip" id="chipP"><em>⎇</em> total.ts <em>+3</em> <i>−1</i></div>
+    <div class="chip" id="chipT">TZ=Asia/Shanghai</div>
+    <div class="chip" id="chipD1"><em>DIFF</em> patch-total.diff</div>
+    <div class="chip" id="chipD2"><i>PDF</i> test-report.pdf</div>
+    <div class="ring" id="ring"></div>
+    <div class="token" id="token"></div>
+  </div>
+
+  <div id="screen">
+    <div class="line" id="L1" style="top:318px">代码，在<em>公司电脑</em>里。</div>
+    <div class="line" id="L2" style="top:448px">测试，要在<em>家里的工作站</em>跑。</div>
+    <div class="line" id="L3" style="top:578px">而你，在回家的路上<span id="dotslot" style="display:inline-block;width:30px"></span></div>
+    <div id="dot"></div>
+    <div class="hit" id="H1">一个任务</div>
+    <div class="hit" id="H2">一个 <em>AI 员工</em></div>
+    <div class="hit" id="H3">每一台授权的电脑</div>
+    <div id="word"></div>
+    <div id="tag">你的 AI 员工，在每一台授权的电脑上工作</div>
+    <div id="url">app.catsco.cn</div>
+    <div id="fade"></div>
+    <div id="hud"></div>
+  </div>
+</div>
+
+<script src="timeline.js"></script>
+<script>
+'use strict';
+const TL = window.TL, C = TL.cues, DUR = TL.dur;
+const W = 1920, H = 1080;
+const $ = (id) => document.getElementById(id);
+
+// ───────────────────────── curves (closed forms, measured by eye on stills) ─────────────────────────
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, u) => a + (b - a) * u;
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const E = {
+  lin: (x) => x,
+  sineInOut: (x) => -(Math.cos(Math.PI * x) - 1) / 2,
+  cubicIn: (x) => x * x * x,
+  cubicOut: (x) => 1 - Math.pow(1 - x, 3),
+  cubicInOut: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
+  quintOut: (x) => 1 - Math.pow(1 - x, 5),
+  expoIn: (x) => (x <= 0 ? 0 : Math.pow(2, 10 * x - 10)),
+  expoOut: (x) => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x)),
+  expoInOut: (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x < 0.5 ? Math.pow(2, 20 * x - 10) / 2 : (2 - Math.pow(2, -20 * x + 10)) / 2),
+};
+const ez = (t, a, b, f = E.cubicInOut) => f(prog(t, a, b));
+/** Damped spring 0 → 1 released at t0 (closed form, so seek stays pure). */
+function spring(t, t0, z = 0.55, w = 17) {
+  const s = t - t0;
+  if (s <= 0) return 0;
+  if (z >= 1) return 1 - Math.exp(-w * s) * (1 + w * s);
+  const wd = w * Math.sqrt(1 - z * z);
+  return 1 - Math.exp(-z * w * s) * (Math.cos(wd * s) + ((z * w) / wd) * Math.sin(wd * s));
+}
+/** A decaying kick 0 → 0 (landing bumps). */
+const bump = (t, t0, decay = 7, f = 13) => (t < t0 ? 0 : Math.exp(-decay * (t - t0)) * Math.sin(f * (t - t0)));
+/** Deterministic noise. */
+const hash = (n) => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); };
+/** Keyed channel: [[t, value, curve]], the curve eases *into* its key. */
+function keyed(t, keys) {
+  if (t <= keys[0][0]) return keys[0][1];
+  for (let i = 1; i < keys.length; i++) {
+    if (t <= keys[i][0]) {
+      const [t0, v0] = keys[i - 1], [t1, v1, f] = keys[i];
+      const u = (f || E.cubicInOut)((t - t0) / (t1 - t0));
+      return Array.isArray(v0) ? v0.map((a, j) => a + (v1[j] - a) * u) : v0 + (v1 - v0) * u;
+    }
+  }
+  return keys[keys.length - 1][1];
+}
+
+// ───────────────────────── the world: the CatsCo M, 2.5 world px per logo px ─────────────────────────
+// Centre lines measured from website/public/catsco-logo.webp (2800 × 1050): legs 195 px, inner strokes 97 px.
+const S = 2.5;
+const L = (x, y) => [x * S, y * S];
+const P = [L(533.5, 1049), L(533.5, 144), L(1399.5, 540), L(2265.5, 144), L(2265.5, 1049)];
+const Q = [L(811.5, 1030), L(811.5, 572), L(1399.5, 841), L(1987.5, 572), L(1987.5, 1030)];
+const OUTER_W = 195 * S, INNER_W = 97 * S;
+const MC = L(1399.5, 525);                       // centre of the mark
+
+const CARD = { w: 1040, h: 640 };
+const pcBox = { x: P[1][0] - 520, y: P[1][1] - 70 - CARD.h, w: CARD.w, h: CARD.h };
+const homeBox = { x: P[3][0] - 520, y: P[3][1] - 70 - CARD.h, w: CARD.w, h: CARD.h };
+const branchBox = { x: homeBox.x + CARD.w + 150, y: homeBox.y + 90, w: 580, h: 470 };
+const cloudBox = { x: P[2][0] - 280, y: P[2][1] - 70 - 118, w: 560, h: 118 };
+const phABox = { x: P[0][0] - 215, y: P[0][1] + 40, w: 430, h: 880 };
+const phBBox = { x: P[4][0] - 215, y: P[4][1] + 40, w: 430, h: 880 };
+const avA = [phABox.x + 33, phABox.y + 333];     // the ack's avatar: where the token is born
+const avB = [phBBox.x + 33, phBBox.y + 261];     // the reply's avatar: where it comes home
+
+// token route: avatar → up the left leg → PC → cloud → home → down the right leg → avatar
+const TR = [avA, P[0], P[1], P[2], P[3], P[4], avB];
+const cum = [0];
+for (let i = 1; i < TR.length; i++) cum.push(cum[i - 1] + Math.hypot(TR[i][0] - TR[i - 1][0], TR[i][1] - TR[i - 1][1]));
+const sAt = (i) => cum[i];
+const routeLen = cum[5] - cum[1];
+function pointAt(s) {
+  s = clamp(s, 0, cum[cum.length - 1]);
+  for (let i = 1; i < TR.length; i++) if (s <= cum[i] || i === TR.length - 1) {
+    const u = (s - cum[i - 1]) / (cum[i] - cum[i - 1] || 1);
+    return [lerp(TR[i - 1][0], TR[i][0], u), lerp(TR[i - 1][1], TR[i][1], u)];
+  }
+}
+const TOKEN_KEYS = [
+  [C.toPC - 0.05, 0], [C.pcLand, sAt(2), E.cubicInOut],
+  [C.toCloud, sAt(2)], [C.homeLand, sAt(4), E.cubicInOut],
+  [C.toPhone, sAt(4)], [C.phoneLand, sAt(6), E.cubicInOut],
+];
+const tokenS = (t) => keyed(t, TOKEN_KEYS);
+
+// ───────────────────────── the camera: keyed, but operated ─────────────────────────
+const cardFocus = (b, dy = 0) => [b.x + b.w / 2, b.y + b.h / 2 + 40 + dy];
+const FA = [phABox.x + 215, phABox.y + 440];
+const FC = cardFocus(pcBox), FH = cardFocus(homeBox), FB = [phBBox.x + 215, phBBox.y + 452];
+const FBR = [(homeBox.x + branchBox.x + branchBox.w) / 2, homeBox.y + homeBox.h / 2 + 40];
+const TERM = (row) => [pcBox.x + 360, pcBox.y + 52 + 26 + row];
+const Z_END = 560 / (2800 * S);                  // the lockup: the mark 560 px wide
+const F_END = [MC[0], MC[1] + (540 - 400) / Z_END];
+const F_ALL = [MC[0], 1500];
+const midY = (a, b) => (a[1] + b[1]) / 2;
+
+const POS = [
+  [0, FA], [C.typeStart, FA], [C.typeStart + 0.5, [FA[0], FA[1] + 170], E.sineInOut],
+  [C.send + 0.05, [FA[0], FA[1] + 170]], [C.ack + 0.2, [FA[0], FA[1] + 70], E.sineInOut],
+  [C.toPC - 0.05, [FA[0], FA[1] + 70]], [C.pcLand + 0.05, FC, E.cubicInOut],
+  [C.log + 0.2, FC], [C.error + 0.3, TERM(170), E.sineInOut], [C.read + 0.3, TERM(170)],
+  [C.diff + 0.35, [pcBox.x + 700, pcBox.y + 470], E.sineInOut], [C.pass - 0.2, [pcBox.x + 700, pcBox.y + 470]],
+  [C.pass + 0.3, FC, E.sineInOut], [C.toCloud, FC],
+  [C.cloud, [P[2][0], P[2][1] - 180], E.cubicIn], [C.homeLand + 0.05, FH, E.cubicOut],
+  [C.branch, FH], [C.branch + 0.45, FBR, E.sineInOut], [C.merge + 0.1, FBR], [C.rerun + 0.35, FH, E.sineInOut],
+  [C.toPhone, FH], [C.phoneLand + 0.05, FB, E.cubicInOut],
+  [C.hit1, FB], [C.hit1 + 0.4, [P[4][0], P[4][1] + 150], E.expoOut],
+  [C.hit2, [P[4][0], P[4][1] + 150]], [C.hit2 + 0.4, [P[3][0] - 700, 1450], E.expoOut],
+  [C.hit3, [P[3][0] - 700, 1450]], [C.hit3 + 0.4, F_ALL, E.expoOut],
+  [C.hit3 + 0.45, F_ALL], [C.logo, F_END, E.cubicInOut],
+];
+const ZOOM = [
+  [0, 1.0], [C.typeStart, 1.0], [C.typeStart + 0.5, 1.28, E.sineInOut],
+  [C.send + 0.05, 1.28], [C.ack + 0.2, 1.16, E.sineInOut],
+  [C.toPC - 0.05, 1.16], [(C.toPC + C.pcLand) / 2, 0.34, E.sineInOut], [C.pcLand + 0.1, 1.0, E.expoOut],
+  [C.log + 0.2, 1.0], [C.error + 0.3, 1.22, E.sineInOut], [C.read + 0.3, 1.22],
+  [C.diff + 0.35, 1.1, E.sineInOut], [C.pass - 0.2, 1.1], [C.pass + 0.3, 1.0, E.sineInOut], [C.toCloud, 1.0],
+  [C.cloud, 0.42, E.sineInOut], [C.homeLand + 0.1, 1.0, E.expoOut],
+  [C.branch, 1.0], [C.branch + 0.45, 0.84, E.sineInOut], [C.merge + 0.1, 0.84], [C.rerun + 0.35, 1.0, E.sineInOut],
+  [C.toPhone, 1.0], [(C.toPhone + C.phoneLand) / 2, 0.34, E.sineInOut], [C.phoneLand + 0.1, 1.08, E.expoOut],
+  [C.hit1, 1.08], [C.hit1 + 0.4, 0.5, E.expoOut],
+  [C.hit2, 0.5], [C.hit2 + 0.4, 0.24, E.expoOut],
+  [C.hit3, 0.24], [C.hit3 + 0.4, 0.13, E.expoOut],
+  [C.hit3 + 0.45, 0.13], [C.logo, Z_END, E.cubicInOut],
+].map(([t, z, f]) => [t, Math.log(z), f]);
+const SHAKES = [[C.pcLand + 0.02, 7], [C.homeLand + 0.02, 7], [C.phoneLand + 0.02, 6], [C.hit1, 9], [C.hit2, 9], [C.hit3, 9], [C.logo, 6]];
+// the operator's hand: a slow float, zero where the frame must be dead still
+const handEnv = (t) => ez(t, 4.0, 4.6, E.sineInOut) * (1 - ez(t, C.reply + 0.2, C.reply + 0.7, E.sineInOut)) * (1 - ez(t, C.hit1 - 0.01, C.hit1, E.lin) * 0)
+  + ez(t, C.hit1, C.hit1 + 0.4) * (1 - ez(t, C.hit3 + 0.4, C.logo - 0.2)) * 0.6;
+
+function camAt(t) {
+  const [x0, y0] = keyed(t, POS);
+  let z = Math.exp(keyed(t, ZOOM));
+  let x = x0, y = y0;
+  const e = handEnv(t) * 3.2;
+  x += (e * (Math.sin(1.7 * t) + 0.6 * Math.sin(2.9 * t + 1))) / z;
+  y += (e * (Math.sin(1.3 * t + 2) + 0.5 * Math.sin(3.3 * t))) / z;
+  for (const [th, amp] of SHAKES) {
+    const k = t < th ? 0 : Math.exp(-9 * (t - th)) * amp;
+    if (!k) continue;
+    x += (k * Math.sin(47 * (t - th) + th)) / z;
+    y += (k * Math.sin(61 * (t - th) + 2 * th)) / z;
+  }
+  z *= 1 + 0.045 * bump(t, C.logo, 6, 11);
+  return { x, y, z };
+}
+const toScreen = (cam, p) => [(p[0] - cam.x) * cam.z + W / 2, (p[1] - cam.y) * cam.z + H / 2];
+
+// ───────────────────────── mock copy ─────────────────────────
+const TASK = '读取公司电脑的构建日志，把项目修好；再去家里工作站跑完整测试，最后把补丁和报告发我。';
+const TERM_CUES = [C.cmd, C.log, C.log + 0.15, C.log + 0.35, C.error, C.error + 0.05, C.read, C.diff, C.rebuild, C.pass];
+const ROWS = [
+  { nm: 'api/auth.spec.ts', n: 32, t: 14.5 },
+  { nm: 'api/billing.spec.ts', n: 41, t: 14.75 },
+  { nm: 'invoice/total.spec.ts', n: 18, t: 15.0, tag: '含本次修复' },
+  { nm: 'report/export.spec.ts', n: 27, t: 15.2 },
+  { nm: 'utils/timezone.spec.ts', n: 23, t: C.fail, fail: '期望 09:00 · 实际 01:00', fix: C.rerun + 0.25 },
+  { nm: 'e2e/checkout.spec.ts', n: 73, t: C.allPass - 0.1, run: C.branch + 0.1 },
+];
+const HITS = ['H1', 'H2', 'H3'];
+
+// ───────────────────────── build ─────────────────────────
+const el = {};
+function build() {
+  for (const id of ['world', 'lat1', 'lat2', 'ghost', 'glow', 'route', 'inner', 'fork', 'logo', 'n1', 'n2', 'n3', 'pc', 'term', 'caret', 'diff', 'cloud', 'home', 'cnt', 'barfill', 'rows', 'mainst', 'banner', 'branch',
+    'b0', 'b1', 'b2', 'b3', 'b4', 'phA', 'phB', 'greet', 'avA0', 'mine', 'avA1', 'ack', 'ackc1', 'ackc2', 'compA', 'phA_ph', 'typed', 'sendA', 'touch', 'touchr', 'avB', 'reply', 'fileA', 'fileB',
+    'chipP', 'chipT', 'chipD1', 'chipD2', 'ring', 'token', 'L1', 'L2', 'L3', 'dot', 'dotslot', 'H1', 'H2', 'H3', 'word', 'tag', 'url', 'fade', 'hud']) el[id] = $(id);
+  el.tls = [...el.term.querySelectorAll('.tl')];
+
+  const pts = (arr) => 'M' + arr.map((p) => p.join(' ')).join(' L');
+  for (const id of ['ghost', 'glow', 'route']) el[id].setAttribute('d', pts(P));
+  el.inner.setAttribute('d', pts(Q));
+  el.innerLen = el.inner.getTotalLength();
+  el.logo.style.cssText += `left:0;top:0;width:${2800 * S}px;height:${1050 * S}px;`;
+
+  const place = (e, b) => { e.style.left = b.x + 'px'; e.style.top = b.y + 'px'; };
+  place(el.pc, pcBox); place(el.home, homeBox); place(el.branch, branchBox); place(el.cloud, cloudBox); place(el.phA, phABox); place(el.phB, phBBox);
+  [el.n1, el.n2, el.n3].forEach((n, i) => { n.style.left = P[i + 1][0] + 'px'; n.style.top = P[i + 1][1] + 'px'; });
+
+  el.rows.innerHTML = ROWS.map((r, i) => `<div class="row" style="top:${96 + i * 52}px">
+      <div class="ico"><svg viewBox="0 0 26 26" class="i0"><circle cx="13" cy="13" r="10" fill="none" stroke="#D5DDD9" stroke-width="2.5"/></svg>
+        <svg viewBox="0 0 26 26" class="i1"><circle cx="13" cy="13" r="10" fill="none" stroke="#1A9D7A" stroke-width="2.5" stroke-dasharray="16 60" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 26 26" class="i2"><circle cx="13" cy="13" r="12" fill="#1A9D7A"/><path d="M7.5 13.5l3.6 3.6 7.4-7.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 26 26" class="i3"><circle cx="13" cy="13" r="12" fill="#E5484D"/><path d="M9 9l8 8M17 9l-8 8" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+      <div class="nm">${r.nm}</div>${r.tag ? `<div class="tag">${r.tag}</div>` : ''}
+      <div class="rt">${r.n} 项</div>${r.fail ? `<div class="rt err">${r.fail}</div>` : ''}</div>`).join('');
+  el.rowEls = [...el.rows.querySelectorAll('.row')].map((r) => ({ r, i: [...r.querySelectorAll('.ico svg')], rt: r.querySelectorAll('.rt') }));
+
+  el.word.innerHTML = [...'CatsCo'].map((c) => `<span>${c}</span>`).join('');
+  el.letters = [...el.word.querySelectorAll('span')];
+
+  // composer height per typed prefix, measured once
+  const probe = el.typed;
+  el.typedH = [];
+  for (let n = 0; n <= TASK.length; n++) { probe.textContent = TASK.slice(0, n); el.typedH.push(probe.offsetHeight); }
+  probe.textContent = '';
+  el.mine.textContent = TASK;
+  el.mineH = el.mine.offsetHeight;
+  // typing: ~34 chars/s with a deterministic human stutter
+  el.charT = [];
+  let tt = C.typeStart;
+  for (let i = 0; i < TASK.length; i++) { el.charT.push(tt); tt += 0.018 + 0.026 * hash(i); if ('，；。'.includes(TASK[i])) tt += 0.06; }
+  const k = (C.typeEnd - C.typeStart) / (tt - C.typeStart);
+  el.charT = el.charT.map((x) => C.typeStart + (x - C.typeStart) * k);
+  // the dot sits where the last line's full stop would be
+  const r = el.dotslot.getBoundingClientRect();
+  el.dotHome = [r.left + 16, r.top + r.height * 0.62];
+}
+
+// ───────────────────────── state: every number for time t ─────────────────────────
+function state(t) {
+  const s = { t, cam: camAt(t) };
+  const z = s.cam.z;
+  // token
+  const ts = tokenS(t);
+  s.tok = pointAt(ts);
+  s.tokOp = ez(t, C.token, C.token + 0.2, E.expoOut) * (1 - ez(t, C.reply - 0.05, C.reply + 0.1, E.lin));
+  s.tokSc = (0.2 + 0.8 * spring(t, C.token, 0.5, 18)) / Math.pow(z, 0.55) * (1 + 0.25 * Math.max(0, bump(t, C.pcLand, 8, 12)) + 0.25 * Math.max(0, bump(t, C.homeLand, 8, 12)));
+  s.drawn = clamp(ts - cum[1], 0, routeLen);
+  // chips follow the token a beat behind
+  const lagP = pointAt(tokenS(t - 0.07));
+  const off = (dx, dy) => [lagP[0] + dx / Math.pow(z, 0.55), lagP[1] + dy / Math.pow(z, 0.55)];
+  const diffAnchor = [pcBox.x + CARD.w - 26 - 560 + 16, pcBox.y + CARD.h - 26 - 170 + 2];
+  s.chipP = { p: t < C.toCloud ? [lerp(diffAnchor[0], P[1][0] + 34, ez(t, C.chip + 0.05, C.toCloud, E.expoInOut)), lerp(diffAnchor[1], P[1][1] - 60, ez(t, C.chip + 0.05, C.toCloud, E.expoInOut))] : off(34, -60),
+    op: ez(t, C.chip, C.chip + 0.12) * (1 - ez(t, C.homeLand + 0.1, C.homeLand + 0.35)), sc: spring(t, C.chip, 0.6, 20) / (t < C.toCloud ? 1 : Math.pow(z, 0.55)) };
+  const found = [branchBox.x + 22 + 250, branchBox.y + 230 + 76];
+  const tzRow = [homeBox.x + 34 + 330, homeBox.y + 52 + 26 + 96 + 4 * 52 + 6];
+  const m = ez(t, C.merge, C.rerun + 0.05, E.expoInOut);
+  s.chipT = { p: [lerp(found[0], tzRow[0], m), lerp(found[1], tzRow[1], m) - Math.sin(m * Math.PI) * 60], op: ez(t, C.merge - 0.1, C.merge) * (1 - ez(t, C.rerun + 0.1, C.rerun + 0.3)), sc: 0.9 + 0.1 * spring(t, C.merge - 0.1) };
+  const delv = ez(t, C.deliver, C.toPhone + 0.05, E.expoInOut);
+  const banner = [homeBox.x + 60, homeBox.y + CARD.h - 90];
+  const d1 = off(34, -40), d2 = off(34, 10);
+  s.chipD1 = { p: t < C.toPhone + 0.05 ? [lerp(banner[0], P[3][0] + 34, delv), lerp(banner[1], P[3][1] - 40, delv)] : d1, op: ez(t, C.deliver - 0.1, C.deliver) * (1 - ez(t, C.phoneLand, C.reply + 0.1)), sc: (0.4 + 0.6 * spring(t, C.deliver - 0.1)) / (t < C.toPhone + 0.05 ? 1 : Math.pow(z, 0.55)) };
+  s.chipD2 = { p: t < C.toPhone + 0.05 ? [lerp(banner[0] + 260, P[3][0] + 34, delv), lerp(banner[1], P[3][1] + 10, delv)] : d2, op: s.chipD1.op, sc: (0.4 + 0.6 * spring(t, C.deliver - 0.05)) / (t < C.toPhone + 0.05 ? 1 : Math.pow(z, 0.55)) };
+  // cards grow out of the node the token lands on, and fold back into it at the end
+  const fold = (i) => 1 - ez(t, C.hit3 + 0.05 + i * 0.07, C.hit3 + 0.45 + i * 0.07, E.expoIn);
+  s.pc = spring(t, C.pcLand - 0.12, 0.62, 15) * fold(1);
+  s.cloud = spring(t, C.cloud - 0.3, 0.6, 16) * fold(2);
+  s.home = spring(t, C.homeLand - 0.12, 0.62, 15) * fold(3);
+  s.phA = fold(0);
+  s.phB = spring(t, C.phoneLand - 0.18, 0.66, 15) * fold(4);
+  s.branch = spring(t, C.branch + 0.1, 0.7, 16) * (1 - ez(t, C.rerun + 0.05, C.rerun + 0.4, E.expoIn));
+  s.fork = ez(t, C.branch, C.branch + 0.3, E.expoOut) * (1 - ez(t, C.merge + 0.2, C.rerun + 0.4, E.cubicInOut));
+  // intro
+  s.iris = ez(t, C.phone, C.phone + 0.5, (x) => spring(x * 0.5, 0, 0.72, 15));
+  s.phoneIn = ez(t, C.phone + 0.35, C.phone + 0.6, E.lin);
+  // lockup
+  s.logoOp = ez(t, C.logo - 0.25, C.logo, E.lin);
+  s.lineW = t < C.hit3 + 0.3 ? 5 / z : lerp(5 / z, OUTER_W, ez(t, C.hit3 + 0.3, C.logo - 0.1, E.cubicInOut));
+  s.innerDrawn = ez(t, C.hit3 + 0.35, C.logo - 0.15, E.cubicInOut);
+  s.innerW = lerp(5 / z, INNER_W, ez(t, C.hit3 + 0.5, C.logo - 0.1, E.cubicInOut));
+  return s;
+}
+
+// ───────────────────────── apply ─────────────────────────
+const px = (v) => v.toFixed(2) + 'px';
+function tf(e, x, y, sc = 1, op = 1, extra = '') {
+  e.style.transform = `translate(${x.toFixed(2)}px,${y.toFixed(2)}px) scale(${sc.toFixed(4)})${extra}`;
+  e.style.opacity = op.toFixed(3);
+}
+function show(e, op) { e.style.opacity = op.toFixed(3); e.style.visibility = op <= 0.001 ? 'hidden' : 'visible'; }
+function rise(e, t, t0, dy = 26) {
+  const u = spring(t, t0, 0.8, 14);
+  e.style.transform = `translateY(${((1 - u) * dy).toFixed(2)}px)`;
+  show(e, ez(t, t0, t0 + 0.18, E.lin));
+}
+
+function seek(t) {
+  t = clamp(t, 0, DUR);
+  const s = state(t), cam = s.cam, z = cam.z;
+  el.world.style.transform = `matrix(${z},0,0,${z},${W / 2 - cam.x * z},${H / 2 - cam.y * z})`;
+  show(el.world, ez(t, C.phone + 0.3, C.phone + 0.45, E.lin));
+  show(el.lat1, 0.9 * ez(z, 0.3, 0.7, E.lin) * (1 - s.logoOp));
+  show(el.lat2, 0.7 * ez(z, 0.07, 0.16, E.lin) * (1 - ez(z, 0.5, 0.9, E.lin)) * (1 - s.logoOp));
+
+  // route
+  const lw = s.lineW;
+  el.route.setAttribute('stroke-width', lw.toFixed(2));
+  el.route.setAttribute('stroke-dasharray', `${s.drawn.toFixed(1)} 99999`);
+  el.glow.setAttribute('stroke-width', (lw + 14 / z).toFixed(2));
+  el.glow.setAttribute('stroke-dasharray', `${s.drawn.toFixed(1)} 99999`);
+  show(el.glow, 1 - ez(t, C.hit3 + 0.2, C.hit3 + 0.6));
+  el.ghost.setAttribute('stroke-width', (2.5 / z).toFixed(2));
+  el.ghost.setAttribute('stroke-dasharray', `${(10 / z).toFixed(1)} ${(14 / z).toFixed(1)}`);
+  show(el.ghost, 1 - ez(t, C.hit3, C.hit3 + 0.4));
+  el.inner.setAttribute('stroke-width', s.innerW.toFixed(2));
+  el.inner.setAttribute('stroke-dasharray', `${(s.innerDrawn * el.innerLen).toFixed(1)} 99999`);
+  show(el.inner, s.innerDrawn > 0 ? 1 : 0);
+  show(el.logo, s.logoOp);
+  show(el.route, 1 - ez(t, C.logo, C.logo + 0.1, E.lin) * 0);
+  // nodes: lit once the token has passed, and they fold with the cards
+  const nodeSc = 1 / Math.pow(z, 0.55) * (1 - ez(t, C.hit3 + 0.2, C.hit3 + 0.5));
+  [[el.n1, 2, C.pcLand], [el.n2, 3, C.cloud], [el.n3, 4, C.homeLand]].forEach(([n, i, tl]) => {
+    n.style.transform = `scale(${(nodeSc * (1 + 0.5 * Math.max(0, bump(t, tl, 7, 12)))).toFixed(4)})`;
+    n.style.borderColor = t >= tl - 0.05 ? '#1A9D7A' : '#C9D5D0';
+    show(n, nodeSc > 0.01 ? 1 : 0);
+  });
+
+  // token
+  tf(el.token, s.tok[0], s.tok[1], s.tokSc, s.tokOp);
+  const pulses = [C.cmd, C.log, C.error, C.read, C.diff, C.rebuild, C.pass, C.tests, C.fail, C.branch, C.found, C.rerun, C.allPass].filter((c) => c <= t);
+  const lp = pulses.length ? pulses[pulses.length - 1] : -9;
+  const pr = prog(t, lp, lp + 0.55);
+  tf(el.ring, s.tok[0], s.tok[1], s.tokSc * (1 + 1.6 * E.expoOut(pr)), s.tokOp * (1 - pr) * (pr > 0 && pr < 1 ? 0.9 : 0));
+
+  // chips
+  for (const [id, c] of [['chipP', s.chipP], ['chipT', s.chipT], ['chipD1', s.chipD1], ['chipD2', s.chipD2]]) { tf(el[id], c.p[0], c.p[1], Math.max(0.001, c.sc), c.op); show(el[id], c.op); }
+
+  // company PC
+  el.pc.style.transform = `scale(${Math.max(0.001, s.pc).toFixed(4)})`; show(el.pc, clamp(s.pc * 3));
+  el.tls.forEach((l, i) => rise(l, t, TERM_CUES[i], 10));
+  const lastLine = TERM_CUES.filter((c) => c <= t).length;
+  const caretTop = lastLine === 0 ? 26 : parseFloat(el.tls[Math.min(lastLine, el.tls.length) - 1].style.top) + 32;
+  el.caret.style.left = '34px'; el.caret.style.top = caretTop + 5 + 'px';
+  show(el.caret, (Math.floor(t * 2.4) % 2 === 0 || t < C.pass + 0.4) && t > C.pcLand ? 1 : 0);
+  const dfs = spring(t, C.diff, 0.62, 16);
+  el.diff.style.transform = `translateY(${((1 - dfs) * 30).toFixed(2)}px) scale(${(0.9 + 0.1 * dfs).toFixed(4)})`; show(el.diff, ez(t, C.diff, C.diff + 0.12, E.lin));
+
+  // cloud
+  el.cloud.style.transform = `scale(${Math.max(0.001, s.cloud * (1 + 0.06 * Math.max(0, bump(t, C.cloud, 7, 12)))).toFixed(4)})`; show(el.cloud, clamp(s.cloud * 3));
+
+  // home
+  el.home.style.transform = `scale(${Math.max(0.001, s.home).toFixed(4)})`; show(el.home, clamp(s.home * 3));
+  let passed = 0;
+  ROWS.forEach((r, i) => {
+    const R = el.rowEls[i];
+    const start = i === 0 ? C.tests : ROWS[i - 1].t;
+    const running = t >= start && t < r.t || (r.run && t >= r.run && t < r.t) || (r.fix && t >= C.rerun && t < r.fix);
+    const failed = r.fail && t >= r.t && !(t >= C.rerun);
+    const ok = t >= (r.fix || r.t) && !failed && !running;
+    const spin = `rotate(${(t * 520) % 360}deg)`;
+    R.i[0].style.opacity = !running && !ok && !failed ? 1 : 0;
+    R.i[1].style.opacity = running ? 1 : 0; R.i[1].style.transform = spin;
+    const pop = (tp) => 0.6 + 0.4 * spring(t, tp, 0.45, 20);
+    R.i[2].style.opacity = ok ? 1 : 0; R.i[2].style.transform = `scale(${pop(r.fix || r.t).toFixed(3)})`;
+    R.i[3].style.opacity = failed ? 1 : 0; R.i[3].style.transform = `scale(${pop(r.t).toFixed(3)})`;
+    R.r.style.background = failed ? '#FFF4F4' : 'transparent';
+    if (r.fail) { R.rt[0].style.opacity = failed ? 0 : 1; R.rt[1].style.opacity = failed ? 1 : 0; }
+    if (ok) passed += r.n;
+  });
+  el.cnt.textContent = `${passed} / 214`;
+  el.barfill.style.width = `${(passed / 214) * 100}%`;
+  el.barfill.style.background = t >= C.fail && t < C.rerun ? '#E5484D' : '#1A9D7A';
+  rise(el.mainst, t, C.branch + 0.1, 10);
+  el.mainst.style.opacity = (Math.min(1, prog(t, C.branch + 0.1, C.branch + 0.3)) * (1 - prog(t, C.allPass - 0.1, C.allPass))).toFixed(3);
+  const bn = spring(t, C.allPass, 0.5, 17);
+  el.banner.style.transform = `scale(${(0.85 + 0.15 * bn).toFixed(4)})`; show(el.banner, ez(t, C.allPass, C.allPass + 0.1, E.lin));
+
+  // branch agent: forks out of the home card, folds back after the merge
+  const fx0 = homeBox.x + CARD.w, fy = branchBox.y + 180, fx1 = branchBox.x;
+  el.fork.setAttribute('d', `M${fx0} ${fy} L${fx1} ${fy}`);
+  el.fork.setAttribute('stroke-width', (4 / Math.min(1, z)).toFixed(2));
+  el.fork.setAttribute('stroke-dasharray', `${(s.fork * (fx1 - fx0)).toFixed(1)} 99999`);
+  show(el.fork, s.fork > 0.001 ? 1 : 0);
+  el.branch.style.transform = `scale(${Math.max(0.001, s.branch).toFixed(4)})`; show(el.branch, clamp(s.branch * 2));
+  [['b0', C.branch + 0.3], ['b1', C.branch + 0.5], ['b2', C.branch + 0.65], ['b3', C.found], ['b4', C.found + 0.2]].forEach(([id, tt]) => rise(el[id], t, tt, 12));
+  el.b1.style.opacity = (prog(t, C.branch + 0.5, C.branch + 0.6) * 0.55).toFixed(3);
+  el.b2.style.opacity = (prog(t, C.branch + 0.65, C.branch + 0.75) * 0.55).toFixed(3);
+
+  // phone A
+  el.phA.style.transform = `scale(${Math.max(0.001, s.phA).toFixed(4)})`; show(el.phA, s.phoneIn * clamp(s.phA * 3));
+  rise(el.greet, t, C.greet, 14); rise(el.avA0, t, C.greet, 14);
+  const n = el.charT.filter((c) => c <= t).length;
+  const sent = t >= C.send + 0.05;
+  el.typed.textContent = sent ? '' : TASK.slice(0, n);
+  show(el.phA_ph, n === 0 || sent ? 1 : 0);
+  const ch = sent ? 58 : Math.max(58, el.typedH[n] + 32);
+  el.compA.style.height = ch + 'px';
+  el.sendA.style.background = n > 0 && !sent ? '#1A9D7A' : '#CFD8D4';
+  el.sendA.style.transform = `scale(${(1 - 0.12 * Math.max(0, bump(t, C.send, 10, 14))).toFixed(3)})`;
+  // the finger: a touch that lands on send
+  const tp = prog(t, C.send - 0.18, C.send), tr = prog(t, C.send, C.send + 0.4);
+  const sx = 430 - 16 - 8 - 20 - 23, sy = 880 - 28 - 8 - 20 - 23;
+  tf(el.touch, sx, sy, 1.6 - 0.6 * E.expoOut(tp), tp > 0 && tr < 1 ? (tp < 1 ? tp : 1 - tr) : 0);
+  tf(el.touchr, sx, sy, 1 + 1.3 * E.expoOut(tr), tr > 0 && tr < 1 ? 1 - tr : 0);
+  // the typed line becomes the bubble
+  const mb = spring(t, C.send + 0.05, 0.78, 15);
+  const fromY = 880 - 28 - ch + 4 - 204, fromX = -(430 - 18 - 318 - 16) + 18;
+  el.mine.style.transform = `translate(${((1 - mb) * fromX).toFixed(2)}px,${((1 - mb) * fromY).toFixed(2)}px)`;
+  show(el.mine, sent ? 1 : 0);
+  el.mine.style.background = `rgba(26,157,122,${clamp(mb * 1.6).toFixed(3)})`;
+  el.mine.style.color = mb < 0.25 ? '#15231F' : '#fff';
+  const ak = spring(t, C.ack, 0.7, 16);
+  el.ack.style.transform = `translateY(${((1 - ak) * 18).toFixed(2)}px) scale(${(0.94 + 0.06 * ak).toFixed(4)})`; el.ack.style.transformOrigin = '0 0';
+  show(el.ack, ez(t, C.ack, C.ack + 0.12, E.lin)); show(el.avA1, ez(t, C.ack, C.ack + 0.12, E.lin));
+  rise(el.ackc1, t, C.ack + 0.12, 10); rise(el.ackc2, t, C.ack + 0.22, 10);
+
+  // phone B
+  el.phB.style.transform = `scale(${Math.max(0.001, s.phB).toFixed(4)})`; show(el.phB, clamp(s.phB * 3));
+  const rp = spring(t, C.reply, 0.72, 15);
+  el.reply.style.transform = `translateY(${((1 - rp) * 22).toFixed(2)}px) scale(${(0.95 + 0.05 * rp).toFixed(4)})`; el.reply.style.transformOrigin = '0 0';
+  show(el.reply, ez(t, C.reply, C.reply + 0.12, E.lin)); show(el.avB, ez(t, C.reply - 0.05, C.reply + 0.05, E.lin));
+  rise(el.fileA, t, C.reply + 0.15, 10); rise(el.fileB, t, C.reply + 0.25, 10);
+
+  // ── screen layer: the hook lines, the dot, the hits, the lockup
+  const col = ez(t, C.collapse, C.collapse + 0.25, E.expoIn);
+  [['L1', C.line1], ['L2', C.line2], ['L3', C.line3]].forEach(([id, t0], i) => {
+    const e = el[id];
+    const u = spring(t, t0, 0.78, 13);
+    const dim = i < 2 ? 1 - 0.7 * ez(t, [C.line2, C.line3][i], [C.line2, C.line3][i] + 0.3) : 1;
+    const dy = (1 - u) * 34 + col * (540 - (parseFloat(e.style.top) + 40)) ;
+    e.style.transform = `translateY(${dy.toFixed(2)}px) scale(${(1 - 0.85 * col).toFixed(4)})`;
+    show(e, ez(t, t0, t0 + 0.2, E.lin) * dim * (1 - col));
+  });
+  // the dot: full stop → the dot every line collapses into → opens into the phone
+  const dIn = spring(t, C.line3 + 0.55, 0.45, 18);
+  const dc = ez(t, C.collapse, C.phone, E.cubicInOut);
+  const dcx = lerp(el.dotHome[0], W / 2, dc), dcy = lerp(el.dotHome[1], H / 2, dc);
+  const r0 = 13 * dIn * (1 + 0.5 * dc);
+  const iw = lerp(2 * r0, 430, s.iris), ih = lerp(2 * r0, 880, s.iris), rad = lerp(r0, 58, s.iris);
+  const dz = el.dot.style;
+  dz.left = px(dcx - iw / 2); dz.top = px(dcy - ih / 2); dz.width = px(iw); dz.height = px(ih); dz.borderRadius = px(rad);
+  const white = ez(t, C.phone + 0.08, C.phone + 0.35, E.lin);
+  dz.background = `rgb(${lerp(26, 255, white) | 0},${lerp(157, 255, white) | 0},${lerp(122, 255, white) | 0})`;
+  show(el.dot, t >= C.line3 + 0.55 ? 1 - ez(t, C.phone + 0.45, C.phone + 0.6, E.lin) : 0);
+
+  HITS.forEach((id, i) => {
+    const t0 = [C.hit1, C.hit2, C.hit3][i], t1 = i < 2 ? [C.hit2, C.hit3][i] : C.hit3 + 0.7;
+    const on = t >= t0 && t < t1;
+    const u = spring(t, t0, 0.5, 26);
+    el[id].style.transform = `scale(${(1.12 - 0.12 * u).toFixed(4)})`;
+    show(el[id], on ? (i === 2 ? 1 - ez(t, C.hit3 + 0.5, C.hit3 + 0.7, E.lin) : 1) : 0);
+  });
+  el.letters.forEach((l, i) => {
+    const t0 = C.word + i * 0.055, u = spring(t, t0, 0.5, 16);
+    const v = Math.max(0, bump(t, t0 + 0.12, 9, 16));
+    l.style.transform = `translateY(${((1 - u) * -70).toFixed(2)}px) scale(${(1 + 0.12 * v).toFixed(4)},${(1 - 0.16 * v).toFixed(4)})`;
+    l.style.transformOrigin = '50% 90%';
+    show(l, ez(t, t0, t0 + 0.08, E.lin));
+  });
+  rise(el.tag, t, C.tag, 18);
+  const uu = spring(t, C.url, 0.6, 16);
+  el.url.style.transform = `scale(${(0.85 + 0.15 * uu).toFixed(4)})`; show(el.url, ez(t, C.url, C.url + 0.12, E.lin));
+  show(el.fade, ez(t, DUR - 0.5, DUR, E.sineInOut));
+
+  if (HUD) el.hud.textContent = `t ${t.toFixed(3)}  z ${z.toFixed(3)}  cam ${cam.x.toFixed(0)},${cam.y.toFixed(0)}`;
+  window.__last = s;
+  return s;
+}
+
+// ───────────────────────── motion for the shutter ─────────────────────────
+function travel(t0, t1) {
+  const a = state(t0), b = state(t1);
+  let m = 0;
+  const d = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1]);
+  // camera: where the frame's corners and centre go
+  for (const sp of [[0, 0], [W, 0], [0, H], [W, H], [W / 2, H / 2]]) {
+    const wp = [(sp[0] - W / 2) / a.cam.z + a.cam.x, (sp[1] - H / 2) / a.cam.z + a.cam.y];
+    m = Math.max(m, d(sp, toScreen(b.cam, wp)));
+  }
+  if (a.tokOp > 0.05 || b.tokOp > 0.05) m = Math.max(m, d(toScreen(a.cam, a.tok), toScreen(b.cam, b.tok)));
+  for (const k of ['chipP', 'chipT', 'chipD1', 'chipD2']) if (a[k].op > 0.05) m = Math.max(m, d(toScreen(a.cam, a[k].p), toScreen(b.cam, b[k].p)));
+  // cards growing from their nodes: their far corner travels w·Δscale on screen
+  for (const [k, w] of [['pc', 1200], ['home', 1200], ['cloud', 600], ['phB', 900], ['phA', 900], ['branch', 600]]) m = Math.max(m, Math.abs(a[k] - b[k]) * w * a.cam.z);
+  m = Math.max(m, Math.abs(a.iris - b.iris) * 880);
+  return m;
+}
+
+// ───────────────────────── contract ─────────────────────────
+const Q_ = new URLSearchParams(location.search);
+const HUD = Q_.has('hud');
+if (HUD) $('hud').style.display = 'block';
+window.__meta = { dur: DUR, w: W, h: H };
+window.__seek = async (t) => { seek(t); return true; };
+window.__motion = (t0, t1) => travel(t0, t1);
+window.__state = state;
+const imgs = [...document.images].map((i) => (i.decode ? i.decode().catch(() => {}) : Promise.resolve()));
+window.__ready = Promise.all([document.fonts.ready, ...imgs]).then(() => { build(); seek(0); return true; });
+
+window.__ready.then(() => {
+  if (Q_.has('t')) seek(parseFloat(Q_.get('t')));
+  if (Q_.has('play')) {
+    const audio = new Audio('../out/mix.wav');
+    let t0 = null;
+    const start = () => { audio.currentTime = parseFloat(Q_.get('t') || 0); audio.play().catch(() => {}); t0 = performance.now() - audio.currentTime * 1000; };
+    document.addEventListener('click', start, { once: true });
+    const loop = () => { if (t0 !== null) { const t = audio.paused || !audio.duration ? (performance.now() - t0) / 1000 : audio.currentTime; seek(t % DUR); } requestAnimationFrame(loop); };
+    loop();
+    document.addEventListener('keydown', (e) => { if (e.key === ' ') { audio.paused ? audio.play() : audio.pause(); } });
+  }
+});
+</script>
+</body>
+</html>

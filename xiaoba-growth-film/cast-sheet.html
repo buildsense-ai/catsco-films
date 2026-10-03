@@ -1,0 +1,105 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>小八 · 角色设定表</title>
+<style>body{margin:0;background:#1f1d1b;display:grid;place-items:center;min-height:100vh}canvas{max-width:100vw;max-height:100vh}</style>
+<canvas id="c"></canvas>
+<script src="core.js"></script><script src="studio.js"></script>
+<script src="xb-pixel.js"></script>
+<script>
+'use strict';
+// Model sheet, three pages: expressions, actions, looks + growth + size check.
+const BG = '#0e1110', FG = '#e8efe9', DIM = '#7d8a85', GREEN = '#29bc95';
+function txt(c, t, x, y, {size = 24, col = DIM, align = 'center'} = {}) { c.save(); c.font = `${size}px ${XB_FONT}`; c.fillStyle = col; c.textAlign = align; c.fillText(t, x, y); c.restore(); }
+function page(c, n, title, note) {
+  resetT(c); c.fillStyle = BG; c.fillRect(0, 0, W, H);
+  c.save(); c.globalAlpha = .06; c.fillStyle = '#ffffff'; for (let x = 0; x < W; x += 12) for (let y = 0; y < H; y += 12) c.fillRect(x, y, 1, 1); c.restore();
+  txt(c, '小八 · 角色设定表', 60, 78, {size: 40, col: FG, align: 'left'}); txt(c, `${n}/3  ${title}`, 420, 76, {size: 28, col: GREEN, align: 'left'});
+  txt(c, note, 60, 1050, {size: 20, align: 'left'});
+  c.fillStyle = '#ffffff22'; c.fillRect(60, 98, 1800, 1);
+}
+const floor = (c, x, y, w = 150) => { c.fillStyle = '#ffffff1a'; c.fillRect(x - w / 2, y, w, 2); };
+const PX = 9;   // sheet size: 9 logical units per sprite pixel
+
+function pageFaces(c) {
+  page(c, 1, '表情', '18×10 像素；身体就是 CatsCo 的 M，两只上翘的外角是耳朵。表情靠眼睛、耳朵、嘴和小道具。');
+  const rows = [[
+    ['平常', {}], ['看右边', {eyes: 'r'}], ['看左边', {eyes: 'l'}], ['开心', {eyes: 'happy', mouth: 'smile', blush: true}],
+    ['眼冒星星', {eyes: 'big', ears: 'perk'}, 'spark'], ['吃惊', {eyes: 'wide', ears: 'perk', mouth: 'o'}, 'bang'],
+  ], [
+    ['专注', {eyes: 'focus'}], ['眨眼', {eyes: 'blink'}], ['说话', {eyes: 'n', mouth: 'open'}], ['晕乎乎', {eyes: 'dizzy', ears: 'flat'}, 'stars'],
+    ['委屈', {eyes: 'sad', ears: 'droop'}, 'sweat'], ['困了', {eyes: 'shut', ears: 'flat', body: 'squash', legs: 'tuck'}, 'z'],
+  ]];
+  rows.forEach((row, r) => row.forEach(([t, p, fx], i) => {
+    const x = 220 + i * 300, y = 430 + r * 420;
+    floor(c, x, y); drawXiaoba(c, p, {x, y, px: PX});
+    const hx = x + 70, hy = y - 110;
+    if (fx === 'spark') drawProp(c, 'spark', hx, hy, 6); if (fx === 'bang') drawProp(c, 'bang', hx, hy - 10, 6);
+    if (fx === 'stars') { drawProp(c, 'star', x - 60, y - 118, 6); drawProp(c, 'star', x + 10, y - 132, 6); drawProp(c, 'star', x + 60, y - 112, 6); }
+    if (fx === 'sweat') drawProp(c, 'sweat', hx, hy + 20, 6); if (fx === 'z') { drawProp(c, 'z', hx, hy + 20, 5); drawProp(c, 'z', hx + 30, hy - 10, 4); }
+    txt(c, t, x, y + 48);
+  }));
+}
+
+function pageActions(c) {
+  page(c, 2, '动作关键帧', '走路两帧交替（每帧 1/8 秒）；跳：蹲 → 蹬 → 腾空 → 落地压扁；摔倒后在更右边爬起来。');
+  const P = 7, rows = [[
+    ['走 A', {legs: 'walkA'}], ['走 B', {legs: 'walkB'}], ['跳 · 蹲', {body: 'squash', legs: 'tuck', eyes: 'focus'}], ['跳 · 蹬', {body: 'tall', legs: 'reach', ears: 'perk'}, 0],
+    ['跳 · 腾空', {legs: 'tuck', ears: 'perk', eyes: 'big'}, -60], ['落地', {body: 'squash', legs: 'stand', eyes: 'shut'}, 0, 'dust'], ['摔一跤', {eyes: 'dizzy', ears: 'flat', legs: 'tuck'}, 0, 'fall'],
+  ], [
+    ['伸懒腰', {body: 'long', eyes: 'shut', mouth: 'open', legs: 'stand'}], ['打字 A', {eyes: 'focus', legs: 'typeA'}, 0, 'keys'], ['打字 B', {eyes: 'focus', legs: 'typeB'}, 0, 'keys'],
+    ['指一指', {arm: 'point', eyes: 'r', mouth: 'smile'}], ['挥手', {arm: 'wave', eyes: 'happy', mouth: 'smile'}], ['坐下', {legs: 'sit', tail: 'up', eyes: 'happy'}], ['摇尾巴', {tail: 'wag', eyes: 'happy', blush: true}],
+  ], [
+    ['叼文件', {eyes: 'happy'}, 0, 'file'], ['挂工牌', {eyes: 'big', ears: 'perk'}, 0, 'badge'], ['钻进电脑', {}, 0, 'enter'], ['在屏幕里', {}, 0, 'inside'],
+    ['分身', {eyes: 'l'}, 0, 'branch'], ['爱心', {eyes: 'happy', blush: true}, 0, 'heart'], ['探头', {eyes: 'blink'}, 0, 'peek'],
+  ]];
+  rows.forEach((row, r) => row.forEach(([t, p, lift = 0, fx], i) => {
+    const x = 180 + i * 260, y = 340 + r * 305;
+    floor(c, x, y, 170);
+    if (fx === 'fall') { drawXiaoba(c, p, {x: x + 10, y: y - 72, px: P, flipY: true}); drawProp(c, 'star', x - 50, y - 100, 5); drawProp(c, 'star', x + 40, y - 110, 5); }
+    else if (fx === 'enter' || fx === 'inside') {
+      const mx = x - 56, my = y - 90; drawProp(c, 'monitor', mx, my, 7);
+      c.save(); c.beginPath(); c.rect(mx + 7, my + 7, 14 * 7, 7 * 7); c.clip();
+      if (fx === 'enter') drawXiaoba(c, {legs: 'tuck', eyes: 'shut', ears: 'flat'}, {x: x - 4, y: my + 58 + 28, px: 4, look: 'device'});
+      else drawXiaoba(c, {eyes: 'big', ears: 'perk'}, {x: x - 4, y: my + 52, px: 4, look: 'device'});
+      c.restore();
+      if (fx === 'enter') drawXiaoba(c, {legs: 'tuck', eyes: 'shut', ears: 'flat', tail: 'up'}, {x: x + 50, y: y - 20, px: 4});
+    }
+    else if (fx === 'branch') { drawXiaoba(c, {eyes: 'r'}, {x: x + 55, y, px: 5, look: 'catsco'}); xbBlit(c, xbDither(xbPixels({eyes: 'l'})), {x: x - 55, y, px: 5, ax: 9, ay: 10, look: 'catsco'}); }
+    else if (fx === 'peek') { c.save(); c.beginPath(); c.rect(x - 130, y - 200, 260, 150); c.clip(); drawXiaoba(c, p, {x, y: y - 36, px: P}); c.restore();
+      txt(c, 'CatsCo', x, y - 6, {size: 50, col: FG}); }
+    else drawXiaoba(c, p, {x, y: y + lift, px: P});
+    const hx = x + 50, hy = y - 90 + lift;
+    if (fx === 'dust') for (const d of [-1, 1]) for (let k = 1; k < 3; k++) { c.fillStyle = '#7fa89a'; c.fillRect(x + d * (70 + k * 14), y - 6 - k * 6, 6, 6); }
+    if (fx === 'keys') drawProp(c, 'keys', x - 49, y - 16, 7);
+    if (fx === 'file') drawProp(c, 'file', x + 58, y - 52, 6);
+    if (fx === 'badge') drawProp(c, 'badge', x + 22, y - 22, 5);
+    if (fx === 'heart') drawProp(c, 'heart', hx - 10, hy - 20, 6);
+    txt(c, t, x, y + 42, {size: 22});
+  }));
+}
+
+function pageLooks(c) {
+  page(c, 3, '材质 · 成长 · 尺寸', '颜色跟着故事变：终端绿（2 月 CLI）→ 聊天绿（3 月 4 日搬进 CatsCompany）→ 设备蓝（6 月 11 日走进电脑）→ CatsCo 绿。');
+  // the logo becomes the cat
+  txt(c, 'Logo → 小八', 60, 160, {size: 26, col: FG, align: 'left'});
+  [0, .35, .65, 1].forEach((u, i) => { const x = 170 + i * 200, y = 330; floor(c, x, y, 150); xbBlit(c, xbMorph(u), {x, y, px: 7, ax: 9, ay: 10}); txt(c, ['M', '散开', '重组', '小八'][i], x, y + 40, {size: 20}); });
+  // growth: kitten → employee
+  txt(c, '成长', 1000, 160, {size: 26, col: FG, align: 'left'});
+  const g = [['终端里的小猫', {kit: true}, 'terminal'], ['小猫 · 开心', {kit: true, eyes: 'happy', mouth: 'smile'}, 'terminal'], ['员工 · 挂工牌', {eyes: 'big', ears: 'perk'}, 'catsco', 'badge']];
+  g.forEach(([t, p, look, fx], i) => { const x = 1110 + i * 250, y = 330; c.fillStyle = XB_LOOKS[look].bg; c.fillRect(x - 110, y - 150, 220, 180); drawXiaoba(c, p, {x, y, px: 7, look}); if (fx) drawProp(c, 'badge', x + 22, y - 22, 5); txt(c, t, x, y + 60, {size: 20}); });
+  // looks on their own backgrounds
+  txt(c, '四种颜色（各自的场景底色上）', 60, 470, {size: 26, col: FG, align: 'left'});
+  Object.entries(XB_LOOKS).forEach(([k, L], i) => { const x = 200 + i * 440, y = 690; c.fillStyle = L.bg; c.fillRect(x - 190, y - 180, 380, 230);
+    drawXiaoba(c, {eyes: 'happy', mouth: 'smile', blush: true}, {x: x - 70, y, px: 8, look: k}); drawXiaoba(c, {eyes: 'r'}, {x: x + 110, y, px: 5, look: k});
+    txt(c, L.name, x, y + 36, {size: 22, col: k === 'chat' ? '#333' : FG}); });
+  // size check: sprite pixel = 3 / 6 / 9 logical units at 1920 wide
+  txt(c, '尺寸检查（1920 宽下每个像素 3 / 6 / 9 单位；4K 下各 ×2，仍是整数）', 60, 815, {size: 24, col: FG, align: 'left'});
+  [3, 6, 9].forEach((px, i) => { const x = 180 + i * 260, y = 960; floor(c, x, y, 180); drawXiaoba(c, {}, {x, y, px}); txt(c, `${px} 单位 · 高 ${px * 10}px`, x, y + 36, {size: 20}); });
+  c.fillStyle = XB_LOOKS.chat.bg; c.fillRect(960, 840, 900, 170);
+  [3, 6, 9].forEach((px, i) => { const x = 1080 + i * 260, y = 960; drawXiaoba(c, {eyes: 'happy'}, {x, y, px, look: 'chat'}); txt(c, `${px} · 浅底`, x, y + 32, {size: 20, col: '#555'}); });
+  drawXiaoba(c, {kit: true}, {x: 1770, y: 960, px: 3, look: 'chat'}); txt(c, '小猫 3', 1770, 992, {size: 20, col: '#555'});
+}
+
+defineFilm({palette: {...PALETTES.pencilMinimal, paper: BG}, format: {ar: '16:9', width: 1920}, fps: 24,
+  timeline: [{name: 'faces', dur: 1, fn: pageFaces}, {name: 'actions', dur: 1, fn: pageActions}, {name: 'looks', dur: 1, fn: pageLooks}]});
+</script>

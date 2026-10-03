@@ -1,0 +1,2469 @@
+{
+ "repo": "../cats-company",
+ "first_day": "2026-02-15",
+ "last_day": "2026-09-28",
+ "total_commits": 1476,
+ "active_days": 141,
+ "busiest_days": [
+  {
+   "date": "2026-08-28",
+   "commits": 39,
+   "total": 1053
+  },
+  {
+   "date": "2026-08-26",
+   "commits": 38,
+   "total": 994
+  },
+  {
+   "date": "2026-09-15",
+   "commits": 38,
+   "total": 1275
+  },
+  {
+   "date": "2026-09-17",
+   "commits": 38,
+   "total": 1337
+  },
+  {
+   "date": "2026-09-20",
+   "commits": 37,
+   "total": 1404
+  }
+ ],
+ "author_names_upper_bound": 17,
+ "days": [
+  {
+   "date": "2026-02-15",
+   "commits": 1,
+   "total": 1
+  },
+  {
+   "date": "2026-02-16",
+   "commits": 1,
+   "total": 2
+  },
+  {
+   "date": "2026-02-20",
+   "commits": 1,
+   "total": 3
+  },
+  {
+   "date": "2026-02-21",
+   "commits": 5,
+   "total": 8
+  },
+  {
+   "date": "2026-02-22",
+   "commits": 1,
+   "total": 9
+  },
+  {
+   "date": "2026-02-24",
+   "commits": 1,
+   "total": 10
+  },
+  {
+   "date": "2026-02-27",
+   "commits": 6,
+   "total": 16
+  },
+  {
+   "date": "2026-02-28",
+   "commits": 2,
+   "total": 18
+  },
+  {
+   "date": "2026-03-01",
+   "commits": 1,
+   "total": 19
+  },
+  {
+   "date": "2026-03-02",
+   "commits": 11,
+   "total": 30
+  },
+  {
+   "date": "2026-03-03",
+   "commits": 2,
+   "total": 32
+  },
+  {
+   "date": "2026-03-04",
+   "commits": 1,
+   "total": 33
+  },
+  {
+   "date": "2026-03-05",
+   "commits": 10,
+   "total": 43
+  },
+  {
+   "date": "2026-03-06",
+   "commits": 2,
+   "total": 45
+  },
+  {
+   "date": "2026-03-07",
+   "commits": 2,
+   "total": 47
+  },
+  {
+   "date": "2026-03-08",
+   "commits": 1,
+   "total": 48
+  },
+  {
+   "date": "2026-03-11",
+   "commits": 1,
+   "total": 49
+  },
+  {
+   "date": "2026-03-15",
+   "commits": 5,
+   "total": 54
+  },
+  {
+   "date": "2026-03-16",
+   "commits": 2,
+   "total": 56
+  },
+  {
+   "date": "2026-03-17",
+   "commits": 4,
+   "total": 60
+  },
+  {
+   "date": "2026-03-25",
+   "commits": 2,
+   "total": 62
+  },
+  {
+   "date": "2026-03-28",
+   "commits": 1,
+   "total": 63
+  },
+  {
+   "date": "2026-04-10",
+   "commits": 1,
+   "total": 64
+  },
+  {
+   "date": "2026-04-14",
+   "commits": 3,
+   "total": 67
+  },
+  {
+   "date": "2026-04-15",
+   "commits": 3,
+   "total": 70
+  },
+  {
+   "date": "2026-04-16",
+   "commits": 1,
+   "total": 71
+  },
+  {
+   "date": "2026-04-17",
+   "commits": 1,
+   "total": 72
+  },
+  {
+   "date": "2026-04-21",
+   "commits": 2,
+   "total": 74
+  },
+  {
+   "date": "2026-04-23",
+   "commits": 2,
+   "total": 76
+  },
+  {
+   "date": "2026-04-24",
+   "commits": 5,
+   "total": 81
+  },
+  {
+   "date": "2026-04-27",
+   "commits": 1,
+   "total": 82
+  },
+  {
+   "date": "2026-04-28",
+   "commits": 5,
+   "total": 87
+  },
+  {
+   "date": "2026-04-29",
+   "commits": 1,
+   "total": 88
+  },
+  {
+   "date": "2026-04-30",
+   "commits": 4,
+   "total": 92
+  },
+  {
+   "date": "2026-05-06",
+   "commits": 1,
+   "total": 93
+  },
+  {
+   "date": "2026-05-09",
+   "commits": 4,
+   "total": 97
+  },
+  {
+   "date": "2026-05-11",
+   "commits": 1,
+   "total": 98
+  },
+  {
+   "date": "2026-05-12",
+   "commits": 4,
+   "total": 102
+  },
+  {
+   "date": "2026-05-13",
+   "commits": 4,
+   "total": 106
+  },
+  {
+   "date": "2026-05-15",
+   "commits": 2,
+   "total": 108
+  },
+  {
+   "date": "2026-05-18",
+   "commits": 5,
+   "total": 113
+  },
+  {
+   "date": "2026-05-19",
+   "commits": 2,
+   "total": 115
+  },
+  {
+   "date": "2026-05-20",
+   "commits": 14,
+   "total": 129
+  },
+  {
+   "date": "2026-05-21",
+   "commits": 29,
+   "total": 158
+  },
+  {
+   "date": "2026-05-22",
+   "commits": 8,
+   "total": 166
+  },
+  {
+   "date": "2026-05-25",
+   "commits": 8,
+   "total": 174
+  },
+  {
+   "date": "2026-05-27",
+   "commits": 2,
+   "total": 176
+  },
+  {
+   "date": "2026-05-28",
+   "commits": 1,
+   "total": 177
+  },
+  {
+   "date": "2026-05-29",
+   "commits": 8,
+   "total": 185
+  },
+  {
+   "date": "2026-05-31",
+   "commits": 1,
+   "total": 186
+  },
+  {
+   "date": "2026-06-01",
+   "commits": 3,
+   "total": 189
+  },
+  {
+   "date": "2026-06-02",
+   "commits": 2,
+   "total": 191
+  },
+  {
+   "date": "2026-06-03",
+   "commits": 3,
+   "total": 194
+  },
+  {
+   "date": "2026-06-08",
+   "commits": 5,
+   "total": 199
+  },
+  {
+   "date": "2026-06-09",
+   "commits": 4,
+   "total": 203
+  },
+  {
+   "date": "2026-06-10",
+   "commits": 5,
+   "total": 208
+  },
+  {
+   "date": "2026-06-11",
+   "commits": 4,
+   "total": 212
+  },
+  {
+   "date": "2026-06-12",
+   "commits": 23,
+   "total": 235
+  },
+  {
+   "date": "2026-06-15",
+   "commits": 13,
+   "total": 248
+  },
+  {
+   "date": "2026-06-16",
+   "commits": 7,
+   "total": 255
+  },
+  {
+   "date": "2026-06-17",
+   "commits": 6,
+   "total": 261
+  },
+  {
+   "date": "2026-06-18",
+   "commits": 7,
+   "total": 268
+  },
+  {
+   "date": "2026-06-22",
+   "commits": 2,
+   "total": 270
+  },
+  {
+   "date": "2026-06-23",
+   "commits": 3,
+   "total": 273
+  },
+  {
+   "date": "2026-06-24",
+   "commits": 8,
+   "total": 281
+  },
+  {
+   "date": "2026-06-25",
+   "commits": 9,
+   "total": 290
+  },
+  {
+   "date": "2026-06-26",
+   "commits": 1,
+   "total": 291
+  },
+  {
+   "date": "2026-06-29",
+   "commits": 25,
+   "total": 316
+  },
+  {
+   "date": "2026-06-30",
+   "commits": 19,
+   "total": 335
+  },
+  {
+   "date": "2026-07-01",
+   "commits": 12,
+   "total": 347
+  },
+  {
+   "date": "2026-07-02",
+   "commits": 2,
+   "total": 349
+  },
+  {
+   "date": "2026-07-03",
+   "commits": 1,
+   "total": 350
+  },
+  {
+   "date": "2026-07-06",
+   "commits": 2,
+   "total": 352
+  },
+  {
+   "date": "2026-07-07",
+   "commits": 1,
+   "total": 353
+  },
+  {
+   "date": "2026-07-08",
+   "commits": 13,
+   "total": 366
+  },
+  {
+   "date": "2026-07-10",
+   "commits": 1,
+   "total": 367
+  },
+  {
+   "date": "2026-07-13",
+   "commits": 5,
+   "total": 372
+  },
+  {
+   "date": "2026-07-14",
+   "commits": 11,
+   "total": 383
+  },
+  {
+   "date": "2026-07-15",
+   "commits": 5,
+   "total": 388
+  },
+  {
+   "date": "2026-07-16",
+   "commits": 11,
+   "total": 399
+  },
+  {
+   "date": "2026-07-17",
+   "commits": 19,
+   "total": 418
+  },
+  {
+   "date": "2026-07-20",
+   "commits": 8,
+   "total": 426
+  },
+  {
+   "date": "2026-07-21",
+   "commits": 18,
+   "total": 444
+  },
+  {
+   "date": "2026-07-22",
+   "commits": 19,
+   "total": 463
+  },
+  {
+   "date": "2026-07-23",
+   "commits": 20,
+   "total": 483
+  },
+  {
+   "date": "2026-07-24",
+   "commits": 7,
+   "total": 490
+  },
+  {
+   "date": "2026-07-27",
+   "commits": 8,
+   "total": 498
+  },
+  {
+   "date": "2026-07-28",
+   "commits": 23,
+   "total": 521
+  },
+  {
+   "date": "2026-07-29",
+   "commits": 12,
+   "total": 533
+  },
+  {
+   "date": "2026-07-30",
+   "commits": 19,
+   "total": 552
+  },
+  {
+   "date": "2026-07-31",
+   "commits": 12,
+   "total": 564
+  },
+  {
+   "date": "2026-08-02",
+   "commits": 2,
+   "total": 566
+  },
+  {
+   "date": "2026-08-03",
+   "commits": 13,
+   "total": 579
+  },
+  {
+   "date": "2026-08-04",
+   "commits": 9,
+   "total": 588
+  },
+  {
+   "date": "2026-08-05",
+   "commits": 3,
+   "total": 591
+  },
+  {
+   "date": "2026-08-06",
+   "commits": 9,
+   "total": 600
+  },
+  {
+   "date": "2026-08-07",
+   "commits": 29,
+   "total": 629
+  },
+  {
+   "date": "2026-08-09",
+   "commits": 1,
+   "total": 630
+  },
+  {
+   "date": "2026-08-10",
+   "commits": 35,
+   "total": 665
+  },
+  {
+   "date": "2026-08-11",
+   "commits": 8,
+   "total": 673
+  },
+  {
+   "date": "2026-08-12",
+   "commits": 22,
+   "total": 695
+  },
+  {
+   "date": "2026-08-13",
+   "commits": 27,
+   "total": 722
+  },
+  {
+   "date": "2026-08-14",
+   "commits": 33,
+   "total": 755
+  },
+  {
+   "date": "2026-08-15",
+   "commits": 5,
+   "total": 760
+  },
+  {
+   "date": "2026-08-16",
+   "commits": 15,
+   "total": 775
+  },
+  {
+   "date": "2026-08-17",
+   "commits": 32,
+   "total": 807
+  },
+  {
+   "date": "2026-08-18",
+   "commits": 21,
+   "total": 828
+  },
+  {
+   "date": "2026-08-19",
+   "commits": 18,
+   "total": 846
+  },
+  {
+   "date": "2026-08-20",
+   "commits": 17,
+   "total": 863
+  },
+  {
+   "date": "2026-08-21",
+   "commits": 15,
+   "total": 878
+  },
+  {
+   "date": "2026-08-22",
+   "commits": 13,
+   "total": 891
+  },
+  {
+   "date": "2026-08-23",
+   "commits": 10,
+   "total": 901
+  },
+  {
+   "date": "2026-08-24",
+   "commits": 30,
+   "total": 931
+  },
+  {
+   "date": "2026-08-25",
+   "commits": 25,
+   "total": 956
+  },
+  {
+   "date": "2026-08-26",
+   "commits": 38,
+   "total": 994
+  },
+  {
+   "date": "2026-08-27",
+   "commits": 20,
+   "total": 1014
+  },
+  {
+   "date": "2026-08-28",
+   "commits": 39,
+   "total": 1053
+  },
+  {
+   "date": "2026-08-29",
+   "commits": 9,
+   "total": 1062
+  },
+  {
+   "date": "2026-08-31",
+   "commits": 6,
+   "total": 1068
+  },
+  {
+   "date": "2026-09-01",
+   "commits": 14,
+   "total": 1082
+  },
+  {
+   "date": "2026-09-02",
+   "commits": 12,
+   "total": 1094
+  },
+  {
+   "date": "2026-09-03",
+   "commits": 8,
+   "total": 1102
+  },
+  {
+   "date": "2026-09-04",
+   "commits": 5,
+   "total": 1107
+  },
+  {
+   "date": "2026-09-07",
+   "commits": 13,
+   "total": 1120
+  },
+  {
+   "date": "2026-09-08",
+   "commits": 18,
+   "total": 1138
+  },
+  {
+   "date": "2026-09-09",
+   "commits": 22,
+   "total": 1160
+  },
+  {
+   "date": "2026-09-10",
+   "commits": 9,
+   "total": 1169
+  },
+  {
+   "date": "2026-09-11",
+   "commits": 25,
+   "total": 1194
+  },
+  {
+   "date": "2026-09-12",
+   "commits": 3,
+   "total": 1197
+  },
+  {
+   "date": "2026-09-13",
+   "commits": 13,
+   "total": 1210
+  },
+  {
+   "date": "2026-09-14",
+   "commits": 27,
+   "total": 1237
+  },
+  {
+   "date": "2026-09-15",
+   "commits": 38,
+   "total": 1275
+  },
+  {
+   "date": "2026-09-16",
+   "commits": 24,
+   "total": 1299
+  },
+  {
+   "date": "2026-09-17",
+   "commits": 38,
+   "total": 1337
+  },
+  {
+   "date": "2026-09-18",
+   "commits": 30,
+   "total": 1367
+  },
+  {
+   "date": "2026-09-20",
+   "commits": 37,
+   "total": 1404
+  },
+  {
+   "date": "2026-09-21",
+   "commits": 19,
+   "total": 1423
+  },
+  {
+   "date": "2026-09-22",
+   "commits": 25,
+   "total": 1448
+  },
+  {
+   "date": "2026-09-23",
+   "commits": 17,
+   "total": 1465
+  },
+  {
+   "date": "2026-09-24",
+   "commits": 6,
+   "total": 1471
+  },
+  {
+   "date": "2026-09-28",
+   "commits": 5,
+   "total": 1476
+  }
+ ],
+ "tags": [],
+ "first_commit": {
+  "hash": "d41bc37",
+  "date": "2026-02-15",
+  "subject": "Initial commit: Cats Company self-hosted team chat"
+ },
+ "feature_commits": [
+  {
+   "date": "2026-02-27",
+   "hash": "6e255cd",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: iOS file upload UI, typing indicator, and bot quickstart guide",
+   "pr": null
+  },
+  {
+   "date": "2026-02-28",
+   "hash": "e9e1a27",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show API key after bot creation and auto-add friend",
+   "pr": null
+  },
+  {
+   "date": "2026-03-01",
+   "hash": "16ebed7",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: one-click bot deploy integration with gauz-platform",
+   "pr": null
+  },
+  {
+   "date": "2026-03-02",
+   "hash": "82f3820",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add managed bot deployment flows across clients",
+   "pr": null
+  },
+  {
+   "date": "2026-03-02",
+   "hash": "3bd083a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: improve managed bot deployment experience",
+   "pr": null
+  },
+  {
+   "date": "2026-03-03",
+   "hash": "98441fb",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: stabilize production chat clients and deployment",
+   "pr": null
+  },
+  {
+   "date": "2026-03-05",
+   "hash": "f700295",
+   "type": "perf",
+   "scope": "",
+   "subject": "perf: optimize iOS message loading and bubble layout",
+   "pr": null
+  },
+  {
+   "date": "2026-03-05",
+   "hash": "b27887f",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add bot avatar upload API",
+   "pr": null
+  },
+  {
+   "date": "2026-03-05",
+   "hash": "59b2093",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add missing auth middleware and bot avatar upload",
+   "pr": null
+  },
+  {
+   "date": "2026-03-06",
+   "hash": "af6c12d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add typing heartbeat helper and update xiaoba usage",
+   "pr": null
+  },
+  {
+   "date": "2026-03-07",
+   "hash": "a836c02",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add bot management and webapp improvements",
+   "pr": null
+  },
+  {
+   "date": "2026-03-16",
+   "hash": "432c8b3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add code mode support to backend",
+   "pr": null
+  },
+  {
+   "date": "2026-03-16",
+   "hash": "9f440db",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add code mode UI components to webapp",
+   "pr": null
+  },
+  {
+   "date": "2026-03-17",
+   "hash": "ffb0c42",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add Gemini-style code mode UI with CatsCompany branding",
+   "pr": null
+  },
+  {
+   "date": "2026-03-25",
+   "hash": "a3c542e",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): V3 Commercial Dark Glass UI overhaul",
+   "pr": null
+  },
+  {
+   "date": "2026-03-25",
+   "hash": "ef716e9",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): V3 Commercial Dark Glass UI Overhaul (#3)",
+   "pr": 3
+  },
+  {
+   "date": "2026-03-28",
+   "hash": "035cf0a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add invitation system and email functionality",
+   "pr": null
+  },
+  {
+   "date": "2026-05-29",
+   "hash": "5d35307",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 建群输入框显示#新话题，分组展示好友和机器人",
+   "pr": null
+  },
+  {
+   "date": "2026-06-15",
+   "hash": "257726a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: reuse channel identity for mobile agent access",
+   "pr": null
+  },
+  {
+   "date": "2026-06-17",
+   "hash": "27d5b7b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add mobile channel entry for group chats",
+   "pr": null
+  },
+  {
+   "date": "2026-06-18",
+   "hash": "07ce960",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: support channel media attachments",
+   "pr": null
+  },
+  {
+   "date": "2026-07-13",
+   "hash": "c7983c2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show shared quota for agent friends",
+   "pr": null
+  },
+  {
+   "date": "2026-07-13",
+   "hash": "7ed1479",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show agent custom model names",
+   "pr": null
+  },
+  {
+   "date": "2026-07-14",
+   "hash": "e3b5718",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 增加 CatsCo 生图网关",
+   "pr": null
+  },
+  {
+   "date": "2026-07-14",
+   "hash": "119e87d",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 同步生产生图配置",
+   "pr": null
+  },
+  {
+   "date": "2026-07-14",
+   "hash": "70a915a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 增加参考图生图网关",
+   "pr": null
+  },
+  {
+   "date": "2026-07-15",
+   "hash": "8091baa",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: integrate Feishu channel sessions",
+   "pr": null
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "002f45c",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): align CatsCo chat UI with local design",
+   "pr": null
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "8d24b7a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 提供机器人云端会话恢复历史",
+   "pr": null
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "6d8a3b8",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): refine CatsCo UI interactions",
+   "pr": null
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "86e3372",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): refine sidebar and model status UI",
+   "pr": null
+  },
+  {
+   "date": "2026-07-16",
+   "hash": "71ab238",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): migrate CatsCo chat interface (#71)",
+   "pr": 71
+  },
+  {
+   "date": "2026-07-17",
+   "hash": "2d4b4db",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: organize history tasks into projects",
+   "pr": null
+  },
+  {
+   "date": "2026-07-20",
+   "hash": "aba659b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add Feishu private binding management",
+   "pr": null
+  },
+  {
+   "date": "2026-07-21",
+   "hash": "021e4d5",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add resilient image relay racing",
+   "pr": null
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "5a18ac9",
+   "type": "feat",
+   "scope": "image",
+   "subject": "feat(image): add codexapis as third race provider",
+   "pr": null
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "a7ef219",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add cloud Dreamina image fallback",
+   "pr": null
+  },
+  {
+   "date": "2026-07-24",
+   "hash": "9f282e2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: gate group bots on structured mentions (#101)",
+   "pr": 101
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "8dfb4f1",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: scope cloud artifacts to managed agents",
+   "pr": null
+  },
+  {
+   "date": "2026-07-27",
+   "hash": "61921ca",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: distribute and preview cloud artifacts",
+   "pr": null
+  },
+  {
+   "date": "2026-07-28",
+   "hash": "651049f",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add mobile PDF reader controls (#110)",
+   "pr": 110
+  },
+  {
+   "date": "2026-07-28",
+   "hash": "f0c8534",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: persist canonical bot definitions",
+   "pr": null
+  },
+  {
+   "date": "2026-07-28",
+   "hash": "bfc2765",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: preview cloud artifacts in sidebar",
+   "pr": null
+  },
+  {
+   "date": "2026-07-29",
+   "hash": "53ab3b3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: browse agent files from artifact panel",
+   "pr": null
+  },
+  {
+   "date": "2026-07-28",
+   "hash": "57f1f5a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 增加 Bot Skill Definition 云端接口",
+   "pr": null
+  },
+  {
+   "date": "2026-07-29",
+   "hash": "836a9c1",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 增加 Bot Runtime 身份接口",
+   "pr": null
+  },
+  {
+   "date": "2026-07-30",
+   "hash": "58b17b0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: discover direct artifact hosts by agent uid",
+   "pr": null
+  },
+  {
+   "date": "2026-07-31",
+   "hash": "99c2303",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add cross-conversation message search (#132)",
+   "pr": 132
+  },
+  {
+   "date": "2026-07-31",
+   "hash": "51d3707",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: provide artifact runtime DNS config to bots",
+   "pr": null
+  },
+  {
+   "date": "2026-08-04",
+   "hash": "a237a67",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: make custom model context window selectable and drop temperature (#143)",
+   "pr": 143
+  },
+  {
+   "date": "2026-08-04",
+   "hash": "4016233",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: guarded relay usage admin portal from webapp (#144)",
+   "pr": 144
+  },
+  {
+   "date": "2026-08-04",
+   "hash": "1b49d46",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): relay usage admin as inline right-side panel + deploy URL default (#146)",
+   "pr": 146
+  },
+  {
+   "date": "2026-08-04",
+   "hash": "6318566",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): make relay admin panel width freely resizable (#147)",
+   "pr": 147
+  },
+  {
+   "date": "2026-08-04",
+   "hash": "517ed2c",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add authenticated SkillHub WebApp integration",
+   "pr": null
+  },
+  {
+   "date": "2026-08-04",
+   "hash": "9715341",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: complete SkillHub WebApp integration",
+   "pr": null
+  },
+  {
+   "date": "2026-08-05",
+   "hash": "bef6bf7",
+   "type": "feat",
+   "scope": "server",
+   "subject": "feat(server): ship authoritative catalog context window to devices (#150)",
+   "pr": 150
+  },
+  {
+   "date": "2026-08-06",
+   "hash": "0449b0f",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): bridge WebApp to local XiaoBa",
+   "pr": null
+  },
+  {
+   "date": "2026-08-06",
+   "hash": "b1e833a",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): refine workspace layout",
+   "pr": null
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "30c5837",
+   "type": "feat",
+   "scope": "push",
+   "subject": "feat(push): route Web Push through a constrained Cloudflare relay (#153)",
+   "pr": 153
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "40fb2a2",
+   "type": "feat",
+   "scope": "push",
+   "subject": "feat(push): add notification settings and background push test (#159)",
+   "pr": 159
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "1e8e203",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): B4-1 云操作脚本第一批 - 镜像列表 + server 镜像依赖 + 详细设计",
+   "pr": null
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "6d09540",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): B4-1b provision-worker.sh - 云托管虚拟员工供给",
+   "pr": null
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "ca3992e",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): B4-1c/d/e destroy/reset/rollback worker scripts + provision snapshot",
+   "pr": null
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "33ae371",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): provision writes localConfig (bootstrap identity) - worker can start",
+   "pr": null
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "b40d2ac",
+   "type": "feat",
+   "scope": "deploy",
+   "subject": "feat(deploy): wire cloud worker control plane into prod/test compose + persist state dir",
+   "pr": null
+  },
+  {
+   "date": "2026-08-07",
+   "hash": "ce7fc41",
+   "type": "feat",
+   "scope": "cloud-worker",
+   "subject": "feat(cloud-worker): 云虚拟员工控制面后端+前端（云托管入口/配额/回滚/重置）",
+   "pr": null
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "22aa38d",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): cloud worker rollback with version selection from image list",
+   "pr": null
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "17cc38e",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): share active page context with agents (#170)",
+   "pr": 170
+  },
+  {
+   "date": "2026-08-10",
+   "hash": "6e89f81",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add Alipay commercial payment gray rollout (#174)",
+   "pr": 174
+  },
+  {
+   "date": "2026-08-11",
+   "hash": "b14bab0",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): 云托管专属创建界面，选中云托管自动切换 (#183)",
+   "pr": 183
+  },
+  {
+   "date": "2026-08-11",
+   "hash": "c307fb0",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add Volcengine streaming speech input (#176)",
+   "pr": 176
+  },
+  {
+   "date": "2026-08-11",
+   "hash": "e1f1e7c",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): 云托管管理入口 + 创建转圈与失败提示",
+   "pr": null
+  },
+  {
+   "date": "2026-08-11",
+   "hash": "3cf7e66",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: 云托管创建错误分类提示 + 后端结构化错误码与日志",
+   "pr": null
+  },
+  {
+   "date": "2026-08-11",
+   "hash": "4b9ebc0",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): accept semantic page context (#182)",
+   "pr": 182
+  },
+  {
+   "date": "2026-08-12",
+   "hash": "248afb5",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: refresh commercial pricing and billing UI",
+   "pr": null
+  },
+  {
+   "date": "2026-08-12",
+   "hash": "45b9b35",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): add cloud system prompt management",
+   "pr": null
+  },
+  {
+   "date": "2026-08-12",
+   "hash": "3926da7",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: coordinate invite plans and quota bonuses",
+   "pr": null
+  },
+  {
+   "date": "2026-08-12",
+   "hash": "38d01ae",
+   "type": "feat",
+   "scope": "auth",
+   "subject": "feat(auth): validate email format before sending verification codes",
+   "pr": null
+  },
+  {
+   "date": "2026-08-12",
+   "hash": "59eab04",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add commercial operations control plane",
+   "pr": null
+  },
+  {
+   "date": "2026-08-12",
+   "hash": "eecdbba",
+   "type": "feat",
+   "scope": "auth",
+   "subject": "feat(auth): distinguish expired vs mismatched verification codes",
+   "pr": null
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "fdd246a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: sync and share bot system prompts",
+   "pr": null
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "1d166f4",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): unify agent capabilities and friend read-only view",
+   "pr": null
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "4203252",
+   "type": "feat",
+   "scope": "cloud-workers",
+   "subject": "feat(cloud-workers): real per-worker cloud status in roster (#206)",
+   "pr": 206
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "e933636",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add auditable Alipay refunds",
+   "pr": null
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "e0c60a9",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show system prompt apply status",
+   "pr": null
+  },
+  {
+   "date": "2026-08-14",
+   "hash": "df68c5a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add per-conversation notification mute (#189)",
+   "pr": 189
+  },
+  {
+   "date": "2026-08-14",
+   "hash": "4c6a43e",
+   "type": "feat",
+   "scope": "web",
+   "subject": "feat(web): add direct auth routes outside PWA (#218)",
+   "pr": 218
+  },
+  {
+   "date": "2026-08-15",
+   "hash": "960d7cb",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): add bot skill mutation policy",
+   "pr": null
+  },
+  {
+   "date": "2026-08-16",
+   "hash": "b30853b",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): create branded conversation share images (#210)",
+   "pr": 210
+  },
+  {
+   "date": "2026-08-15",
+   "hash": "432a6fb",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): define bot skill mutation facts",
+   "pr": null
+  },
+  {
+   "date": "2026-08-15",
+   "hash": "0dd25e3",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): persist mutations in postgres",
+   "pr": null
+  },
+  {
+   "date": "2026-08-15",
+   "hash": "4fe7332",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): persist mutations in mysql",
+   "pr": null
+  },
+  {
+   "date": "2026-08-16",
+   "hash": "5a5ce73",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): atomically commit mutation definitions",
+   "pr": null
+  },
+  {
+   "date": "2026-08-16",
+   "hash": "9e548c6",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): bind mutation grants to canonical facts",
+   "pr": null
+  },
+  {
+   "date": "2026-08-16",
+   "hash": "dfa2555",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): issue grants from trusted runtime context",
+   "pr": null
+  },
+  {
+   "date": "2026-08-13",
+   "hash": "589220d",
+   "type": "feat",
+   "scope": "ops",
+   "subject": "feat(ops): monthly billing for cloud workers",
+   "pr": null
+  },
+  {
+   "date": "2026-08-14",
+   "hash": "f6037c2",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add pull-based artifact context snapshots",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "b1a6251",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): remove agent skills from local workspace",
+   "pr": null
+  },
+  {
+   "date": "2026-08-17",
+   "hash": "60d6adc",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: fetch worker releases from private TOS",
+   "pr": null
+  },
+  {
+   "date": "2026-08-19",
+   "hash": "bab1a4c",
+   "type": "perf",
+   "scope": "web",
+   "subject": "perf(web): defer workspace bundle until sign-in (#242)",
+   "pr": 242
+  },
+  {
+   "date": "2026-08-21",
+   "hash": "755e7f4",
+   "type": "feat",
+   "scope": "chat",
+   "subject": "feat(chat): download previewed images and videos (#275)",
+   "pr": 275
+  },
+  {
+   "date": "2026-08-21",
+   "hash": "75686d8",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: gate paid cloud worker entitlement and lifecycle",
+   "pr": null
+  },
+  {
+   "date": "2026-08-22",
+   "hash": "cba3c85",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: clarify SkillHub capability sources",
+   "pr": null
+  },
+  {
+   "date": "2026-08-23",
+   "hash": "7978aa3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show read-only skill version history",
+   "pr": null
+  },
+  {
+   "date": "2026-08-21",
+   "hash": "bab3489",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): protect same-id preview refreshes",
+   "pr": null
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "3138d58",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): harden PWA lifecycle and installation (#292)",
+   "pr": 292
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "d2f48c3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: manage server bot SkillHub workspaces",
+   "pr": null
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "35efcea",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add internal cloud worker admin overview",
+   "pr": null
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "e5f8b94",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show vision capability in model selector",
+   "pr": null
+  },
+  {
+   "date": "2026-08-24",
+   "hash": "fc0759c",
+   "type": "feat",
+   "scope": "sidebar",
+   "subject": "feat(sidebar): add task multi-select actions (#299)",
+   "pr": 299
+  },
+  {
+   "date": "2026-08-25",
+   "hash": "da12e69",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): add plan renewal and cloud worker recovery",
+   "pr": null
+  },
+  {
+   "date": "2026-08-25",
+   "hash": "c443343",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): support same-plan renewal and cloud worker recovery",
+   "pr": null
+  },
+  {
+   "date": "2026-08-25",
+   "hash": "36ff0f1",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): add structured result writeback",
+   "pr": null
+  },
+  {
+   "date": "2026-08-25",
+   "hash": "b034797",
+   "type": "feat",
+   "scope": "files",
+   "subject": "feat(files): include images and sort history by time (#312)",
+   "pr": 312
+  },
+  {
+   "date": "2026-08-25",
+   "hash": "b63f48d",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): share PDFs and HTML previews (#311)",
+   "pr": 311
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "b4e2533",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add atomic skill activation acknowledgement",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "48f4215",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: publish CatsCo public website preview",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "d0f6879",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add bot invite codes for direct friendships",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "8462c48",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: harden bot invite flow and document API",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "38f34c5",
+   "type": "perf",
+   "scope": "",
+   "subject": "perf: keep website media out of source upload",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "7b71c0f",
+   "type": "perf",
+   "scope": "",
+   "subject": "perf: serve website media from server volume",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "09208c7",
+   "type": "feat",
+   "scope": "files",
+   "subject": "feat(files): add metadata preview links for sharing (#320)",
+   "pr": 320
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "d20af4b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add connected Artifact task loop",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "0dc6bfd",
+   "type": "feat",
+   "scope": "website",
+   "subject": "feat(website): refresh team member avatar details",
+   "pr": null
+  },
+  {
+   "date": "2026-08-26",
+   "hash": "515d5f3",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: load complete SkillHub runtime workspaces",
+   "pr": null
+  },
+  {
+   "date": "2026-08-27",
+   "hash": "2e33b35",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show SkillHub publication time",
+   "pr": null
+  },
+  {
+   "date": "2026-08-27",
+   "hash": "c68fef2",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): unify desktop connection and downloads (#334)",
+   "pr": 334
+  },
+  {
+   "date": "2026-08-27",
+   "hash": "7a01312",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): add connected artifact fullscreen viewer",
+   "pr": null
+  },
+  {
+   "date": "2026-08-27",
+   "hash": "c12fcd9",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): connect fullscreen artifact task loop",
+   "pr": null
+  },
+  {
+   "date": "2026-08-27",
+   "hash": "f848b1e",
+   "type": "feat",
+   "scope": "image",
+   "subject": "feat(image): support masked edits through multipart providers",
+   "pr": null
+  },
+  {
+   "date": "2026-08-27",
+   "hash": "11efda5",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): add GLM 5.3 Flash quota migration",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "63d259f",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: publish catalog runtime metadata",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "0defc30",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): configure worker credits on invite codes (#345)",
+   "pr": 345
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "a4f377b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: publish dynamic catalog runtime metadata",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "3ea29a4",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add artifact runtime state bridge",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "da4fea1",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): support private worker forwarding",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "2f93167",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): support private worker forwarding",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "17e2320",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add artifact runtime state bridge",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "61fb4e1",
+   "type": "feat",
+   "scope": "website",
+   "subject": "feat(website): sync header wordmark branding",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "afb177e",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): refine responsive CatsCo interactions",
+   "pr": null
+  },
+  {
+   "date": "2026-08-28",
+   "hash": "88e2036",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: register externally managed cloud worker inventory",
+   "pr": null
+  },
+  {
+   "date": "2026-08-31",
+   "hash": "a1c0974",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): add persistent Runtime 0.2 runs (#369)",
+   "pr": 369
+  },
+  {
+   "date": "2026-09-01",
+   "hash": "8406e73",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: expose complete cloud worker releases and lifecycle cleanup",
+   "pr": null
+  },
+  {
+   "date": "2026-09-01",
+   "hash": "10e2f2d",
+   "type": "feat",
+   "scope": "cloud-worker",
+   "subject": "feat(cloud-worker): expose host SSH metadata for admin access",
+   "pr": null
+  },
+  {
+   "date": "2026-09-02",
+   "hash": "a7a5920",
+   "type": "feat",
+   "scope": "worker",
+   "subject": "feat(worker): automate TOS release retention cleanup",
+   "pr": null
+  },
+  {
+   "date": "2026-09-02",
+   "hash": "4229d3f",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): agent-scoped tag management for cloud artifacts (#376)",
+   "pr": 376
+  },
+  {
+   "date": "2026-09-02",
+   "hash": "f3b21bf",
+   "type": "feat",
+   "scope": "website",
+   "subject": "feat(website): update team member avatar to 方快 (#391)",
+   "pr": 391
+  },
+  {
+   "date": "2026-09-03",
+   "hash": "30745c4",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): delete a tag from the agent tag system (#393)",
+   "pr": 393
+  },
+  {
+   "date": "2026-09-03",
+   "hash": "7bfd06a",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: expose relay catalog runtime metadata (#397)",
+   "pr": 397
+  },
+  {
+   "date": "2026-09-03",
+   "hash": "cf5baa3",
+   "type": "perf",
+   "scope": "website",
+   "subject": "perf(website): optimize static assets, code splitting and fonts (#396)",
+   "pr": 396
+  },
+  {
+   "date": "2026-09-04",
+   "hash": "5c240f6",
+   "type": "perf",
+   "scope": "ci",
+   "subject": "perf(ci): parallelize and cache CatsCompany checks (#402)",
+   "pr": 402
+  },
+  {
+   "date": "2026-09-04",
+   "hash": "ac76fdf",
+   "type": "perf",
+   "scope": "ci",
+   "subject": "perf(ci): replace blocking npm audits with fast dependency review (#403)",
+   "pr": 403
+  },
+  {
+   "date": "2026-09-04",
+   "hash": "70b8852",
+   "type": "perf",
+   "scope": "webapp",
+   "subject": "perf(webapp): drop unused 18.8MB mp4 fallback from liquid background (#404)",
+   "pr": 404
+  },
+  {
+   "date": "2026-09-07",
+   "hash": "d75aa93",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: show CatsCo publisher display name and uid",
+   "pr": null
+  },
+  {
+   "date": "2026-09-08",
+   "hash": "73c7659",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): refine assistant management and interface interactions",
+   "pr": null
+  },
+  {
+   "date": "2026-09-09",
+   "hash": "76f45b4",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add owner workspace sync action",
+   "pr": null
+  },
+  {
+   "date": "2026-09-09",
+   "hash": "de55a92",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: public model policy, lifetime Free Terra trial and admin pagination (#421)",
+   "pr": 421
+  },
+  {
+   "date": "2026-09-09",
+   "hash": "26dcbc5",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: public-IP cloud workers and safe trial billing lifecycle (#424)",
+   "pr": 424
+  },
+  {
+   "date": "2026-09-09",
+   "hash": "d735839",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: guard plan removal and support permanent internal packages (#429)",
+   "pr": 429
+  },
+  {
+   "date": "2026-09-10",
+   "hash": "cab141e",
+   "type": "feat",
+   "scope": "image",
+   "subject": "feat(image): harden Dreamina fallback routing",
+   "pr": null
+  },
+  {
+   "date": "2026-09-10",
+   "hash": "fae0ec9",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add independent DeepSeek Flash Responses model selection (#438)",
+   "pr": 438
+  },
+  {
+   "date": "2026-09-10",
+   "hash": "6e7683f",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add user-isolated Shimo Skill connector",
+   "pr": null
+  },
+  {
+   "date": "2026-09-11",
+   "hash": "6bb072b",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: grant deepseek flash access to existing relay scopes",
+   "pr": null
+  },
+  {
+   "date": "2026-09-11",
+   "hash": "07450be",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: expose DeepSeek Flash without changing plan quotas",
+   "pr": null
+  },
+  {
+   "date": "2026-09-11",
+   "hash": "0ca0376",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: expose relay runtime metadata in legacy model config",
+   "pr": null
+  },
+  {
+   "date": "2026-09-11",
+   "hash": "dc7b336",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add owner-authorized bot body transfer",
+   "pr": null
+  },
+  {
+   "date": "2026-09-11",
+   "hash": "6568fe1",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: add account-bound readonly knowledge Wiki (#447)",
+   "pr": 447
+  },
+  {
+   "date": "2026-09-12",
+   "hash": "82e7a20",
+   "type": "feat",
+   "scope": "sidebar",
+   "subject": "feat(sidebar): preview five tasks per project folder",
+   "pr": null
+  },
+  {
+   "date": "2026-09-14",
+   "hash": "af81266",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: make Shimo login surface interactive",
+   "pr": null
+  },
+  {
+   "date": "2026-09-16",
+   "hash": "fae514f",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): add the image lane models to public plans",
+   "pr": null
+  },
+  {
+   "date": "2026-09-16",
+   "hash": "7b2de13",
+   "type": "feat",
+   "scope": "shimo",
+   "subject": "feat(shimo): 支持读取上传到石墨的 Excel（/file/ 链接）",
+   "pr": null
+  },
+  {
+   "date": "2026-09-16",
+   "hash": "3a91837",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): 已安装能力可在能力库一键更新到最新版",
+   "pr": null
+  },
+  {
+   "date": "2026-09-16",
+   "hash": "6801156",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): batch invite generation and redeemer uid tracking",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "9d7281a",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): add DeepSeek Flash to all public plans",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "d31e0e3",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): search, date ordering and reset for the knowledge wiki",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "23821d2",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): auto-provision the cloud worker on purchase, keep its pending state visible",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "3d8e383",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): confirm before adding a catalogue Skill whose name is taken",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "3299079",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): add operator renewal extension for paid packages",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "036871f",
+   "type": "feat",
+   "scope": "cloud-worker",
+   "subject": "feat(cloud-worker): register lifecycles for credit-less creations and prepay the full paid window",
+   "pr": null
+  },
+  {
+   "date": "2026-09-17",
+   "hash": "e804750",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): add an Artifact applications tab backed by the artifact gateway",
+   "pr": null
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "8dca257",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): 上线工作台助手引导 (#496)",
+   "pr": 496
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "8eb3731",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): hand the visitor's identity to a locally hosted application",
+   "pr": null
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "ac3cf1b",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): sync plan quota conversion rate to relay",
+   "pr": null
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "6dcd0b4",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): anchor every plan's quota conversion to real cost",
+   "pr": null
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "e6272a7",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): show an Artifact application inside the sidebar",
+   "pr": null
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "3ba1fdd",
+   "type": "feat",
+   "scope": "stt",
+   "subject": "feat(stt): continue recording across segment boundaries (#507)",
+   "pr": 507
+  },
+  {
+   "date": "2026-09-18",
+   "hash": "36b9df0",
+   "type": "feat",
+   "scope": "webapp",
+   "subject": "feat(webapp): open gateway applications through a one-time code, and style the panel",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "6c1e508",
+   "type": "feat",
+   "scope": "artifact",
+   "subject": "feat(artifact): issue a domain-level identity cookie and a read-only lookup",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "7029bd4",
+   "type": "feat",
+   "scope": "bot-definition",
+   "subject": "feat(bot-definition): raise Skill reference cap to 1024",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "a9f6385",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): carry the unique username through the identity cookie",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "7f5c57e",
+   "type": "feat",
+   "scope": "preview",
+   "subject": "feat(preview): support Markdown new-tab previews (#518)",
+   "pr": 518
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "fe0cdd7",
+   "type": "feat",
+   "scope": "deploy",
+   "subject": "feat(deploy): serve the public website on www.catsco.cn",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "7545a2c",
+   "type": "feat",
+   "scope": "deploy",
+   "subject": "feat(deploy): default new CatsCo endpoints to cn",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "4efbf52",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): publish applications through the platform",
+   "pr": null
+  },
+  {
+   "date": "2026-09-20",
+   "hash": "253bfa5",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): let an update omit the public key",
+   "pr": null
+  },
+  {
+   "date": "2026-09-21",
+   "hash": "d5cfe18",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: follow the storefront domain for Alipay notify and return URLs",
+   "pr": null
+  },
+  {
+   "date": "2026-09-21",
+   "hash": "29ea434",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): open the image lane to the free plan",
+   "pr": null
+  },
+  {
+   "date": "2026-09-21",
+   "hash": "c36431e",
+   "type": "feat",
+   "scope": "website",
+   "subject": "feat(website): update team member profile (#533)",
+   "pr": 533
+  },
+  {
+   "date": "2026-09-22",
+   "hash": "7457f53",
+   "type": "feat",
+   "scope": "bot-model",
+   "subject": "feat(bot-model): convert the web model selector to deepseek-flash",
+   "pr": null
+  },
+  {
+   "date": "2026-09-22",
+   "hash": "f26dd7f",
+   "type": "feat",
+   "scope": "skillhub",
+   "subject": "feat(skillhub): clarify runtime skill state",
+   "pr": null
+  },
+  {
+   "date": "2026-09-22",
+   "hash": "8ec4c0e",
+   "type": "feat",
+   "scope": "artifacts",
+   "subject": "feat(artifacts): forward route upload limits",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "8b439b1",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: apply SkillHub updates to running Runtime",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "e2ef371",
+   "type": "feat",
+   "scope": "model-config",
+   "subject": "feat(model-config): assign the DeepSeek Flash protocol lane per bot",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "c5a38d6",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): add internal auto-renew scheduler with detailed run log",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "1fcd43b",
+   "type": "feat",
+   "scope": "bot-model",
+   "subject": "feat(bot-model): add admin reapply endpoint to re-materialize cloud runtimes",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "2c6cd3a",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): surface bound cloud workers in the auto-renew console",
+   "pr": null
+  },
+  {
+   "date": "2026-09-23",
+   "hash": "2f35c91",
+   "type": "feat",
+   "scope": "",
+   "subject": "feat: authorize scoped device connector uploads",
+   "pr": null
+  },
+  {
+   "date": "2026-09-24",
+   "hash": "fd394bf",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): retire DeepSeek V4 Flash from every commercial package",
+   "pr": null
+  },
+  {
+   "date": "2026-09-28",
+   "hash": "0463693",
+   "type": "feat",
+   "scope": "commercial",
+   "subject": "feat(commercial): drive paid plan model sets from the relay catalog (#555)",
+   "pr": 555
+  }
+ ],
+ "reverts": [
+  {
+   "date": "2026-05-09",
+   "hash": "db0ddd9",
+   "subject": "Revert \"接入企业微信第三方应用\""
+  },
+  {
+   "date": "2026-05-09",
+   "hash": "afd5a91",
+   "subject": "Revert \"接入企业微信回调服务\""
+  },
+  {
+   "date": "2026-05-21",
+   "hash": "d30bbf3",
+   "subject": "Revert \"账号中心新增用户级API Key\""
+  },
+  {
+   "date": "2026-07-14",
+   "hash": "4d62edf",
+   "subject": "Revert \"feat: 同步生产生图配置\""
+  },
+  {
+   "date": "2026-07-21",
+   "hash": "7238fce",
+   "subject": "Revert \"Merge pull request #88 from buildsense-ai/codex/image-relay-race\""
+  },
+  {
+   "date": "2026-07-23",
+   "hash": "6cbe1f2",
+   "subject": "revert(upload): keep default request body timeout"
+  },
+  {
+   "date": "2026-07-31",
+   "hash": "f50965e",
+   "subject": "revert: 撤回视频和照片预览改动"
+  },
+  {
+   "date": "2026-08-14",
+   "hash": "a08be39",
+   "subject": "Revert \"Merge pull request #195 from c3811yyds/fix/relax-auth-login-ratelimit\""
+  },
+  {
+   "date": "2026-08-20",
+   "hash": "084012d",
+   "subject": "Revert \"fix(chat): preserve Agent identity across message races (#184)\""
+  }
+ ]
+}

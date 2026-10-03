@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>小八上班记 · CatsCo</title>
+<style>
+body{margin:0;background:#0e1110;color:#d9d3c7;font:13px -apple-system,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:10px}
+canvas{max-width:96vw;max-height:84vh;object-fit:contain;box-shadow:0 0 0 1px #ffffff14;image-rendering:pixelated}
+</style>
+<canvas id="c"></canvas>
+<script src="core.js"></script><script src="studio-ui.js"></script><script src="studio.js"></script>
+<script src="xb-pixel.js"></script><script src="xb-data.js"></script><script src="xb-world.js"></script><script src="xb-film.js"></script><script src="xb-score.js"></script>
+<script src="shots.js"></script>
+<script>
+'use strict';
+/* Brief
+Subject: 小八 (XiaoBa), CatsCo's AI employee, tells how CatsCo grew from two repositories:
+  buildsense-ai/XiaoBa-CLI (Runtime, upper rail) and buildsense-ai/cats-company (Platform, lower rail).
+Staging: one continuous take; 小八 only moves right; the camera follows and pulls back once at the end.
+Format: 16:9, 1920x1080 logical, 24 fps preview, 60 fps delivery. Pixel art on whole units.
+Looks: terminal green (the CLI days) → chat light (3 月 4 日, moving into CatsCompany) → CatsCo dark (5 月 9 日).
+*/
+const SCENES = SEGS.map(([name, d]) => ({name, dur: d, fn: (c, tau) => frame(c, T[name] + tau)}));
+const qfps = +new URLSearchParams(location.search).get('fps');
+defineFilm({palette: {...PALETTES.blueprintNight, paper: '#0e1110'}, format: {ar: '16:9', width: 1920}, fps: [12, 24, 60].includes(qfps) ? qfps : 24, timeline: SCENES, score: xbScore});
+</script>
